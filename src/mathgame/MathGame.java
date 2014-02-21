@@ -50,7 +50,10 @@ public class MathGame {
 
     
     //declare instance variables
-    String rightAnswer, wrongAnswer, response, input;
+    String response, input;
+    //String rightAnswer, wrongAnswer;
+    
+    int num1, num2;
 
 
     //constructor
@@ -99,166 +102,218 @@ public class MathGame {
 	switch(input.toLowerCase())
 	{
 	case "addition":
-            addition(); 
+            //addition(); 
             break;
         case "subtraction":
-            subtraction();
+            //subtraction();
             break;
 	case "multiplication":
-            multiply();
+            //multiply();
             break;
 	case "division":
-            division();
+            //division();
             break;
 	case "random":
-            randomQuestion();
+            //randomQuestion();
             break;
 	}
     }
+    
+    
+    //method to retrieve num1
+    public int getNum1() {
+        return num1;
+    }
+    
+    
+    //method to set num1
+    public void setNum1(int num1) {
+	this.num1 = num1;
+    }
+    
+    
+    //method to retrieve num2
+    public int getNum2() {
+        return num2;
+    }
+    
+    
+    //method to set num2
+    public void setNum2(int num2) {
+	this.num2 = num2;
+    }
+    
 
-
-    //method to ask an addition problem
-    public void addition(){
-
-	//declare local variables
-	int num1 = 1 + rand.nextInt(9); //random number between 1 and 9
-	int num2 = 1 + rand.nextInt(9); //random number between 1 and 9
-	int sum = num1 + num2; //calculate sum of 2 numbers
-	int guess = 0;
-        int attempt = 1; //counter
+    //method to calculate an addition problem
+    public int addition(int num1, int num2){
         
-	System.out.printf("\nHow much is %d plus %d? ", num1, num2); //prompt user to answer question
-	guess = scan.nextInt(); //read input from user and assign to variable
+        this.num1 = num1;
+        this.num2 = num2;
+        
+        int sum = num1 + num2; //calculate sum of 2 numbers
+        
+	//declare local variables
+	//int num1 = 1 + rand.nextInt(9); //random number between 1 and 9
+	//int num2 = 1 + rand.nextInt(9); //random number between 1 and 9
+	
+	//int guess = 0;
+        //int attempt = 1; //counter
+        
+	//System.out.printf("\nHow much is %d plus %d? ", num1, num2); //prompt user to answer question
+	//guess = scan.nextInt(); //read input from user and assign to variable
 
         //if user's guess is incorrect
-        if(guess != sum){
-            while(attempt < 2){ //loop 2 times to give the user 2 chances to answer correctly
-                incorrectAnswer(); //call method to pick condemning response
+        //if(guess != sum){
+            //while(attempt < 2){ //loop 2 times to give the user 2 chances to answer correctly
+                //incorrectAnswer(); //call method to pick condemning response
                 
                 //have user guess again
-                System.out.printf("\nWhat is the correct answer? "); //prompt user
-                guess = scan.nextInt(); //read input from user and assign to variable
+                //System.out.printf("\nWhat is the correct answer? "); //prompt user
+                //guess = scan.nextInt(); //read input from user and assign to variable
             
-                attempt++; //increment counter
-            }
+                //attempt++; //increment counter
+            //}
             //display correct answer after 2 failed attempts.
-            System.out.printf("You are incorrect.\nThe Correct answer is: %d\n", sum);
-        }
-        else{
+            //System.out.printf("You are incorrect.\nThe Correct answer is: %d\n", sum);
+        //}
+        //else{
             //user guessed correctly
-            correctAnswer(); //call method to pick affirming response
-        }
+            //correctAnswer(); //call method to pick affirming response
+        //}
+        
+        return sum;
     }
 
 
-    //method to ask a subtraction problem
-    public void subtraction(){
-
+    //method to calculate a subtraction problem
+    public int subtraction(int num1, int num2){
+        
+        this.num1 = num1;
+        this.num2 = num2;
+        
+        int difference = num1 - num2; //calculate difference of 2 numbers
+        
 	//declare local variables
-	int num1 = 1 + rand.nextInt(9); //random number between 1 and 9
-	int num2 = 1 + rand.nextInt(9); //random number between 1 and 9
-	int difference = num1 - num2; //calculate difference of 2 numbers
-	int guess = 0;
-	int attempt = 1; //counter
+	//int num1 = 1 + rand.nextInt(9); //random number between 1 and 9
+	//int num2 = 1 + rand.nextInt(9); //random number between 1 and 9
+	//int difference = num1 - num2; //calculate difference of 2 numbers
+	//int guess = 0;
+	//int attempt = 1; //counter
         
         //If less than 0, ensure it's a positive answer 
         if(difference <= 0){
             difference = num2 - num1;
-            System.out.printf("\nHow much is %d minus %d? ", num2, num1); //prompt user to answer question
+            //System.out.printf("\nHow much is %d minus %d? ", num2, num1); //prompt user to answer question
         }
-        else{
-            System.out.printf("\nHow much is %d minus %d? ", num1, num2); //prompt user to answer question
-        }
+        //else{
+            //System.out.printf("\nHow much is %d minus %d? ", num1, num2); //prompt user to answer question
+        //}
  
-	guess = scan.nextInt(); //read input from user and assign to variable
+	//guess = scan.nextInt(); //read input from user and assign to variable
         
         //if user's guess is incorrect
-        if(guess != difference){
-            while(attempt < 2){ //loop 2 times to give the user 2 chances to answer correctly
-                incorrectAnswer(); //call method to pick condemning response
+        //if(guess != difference){
+            //while(attempt < 2){ //loop 2 times to give the user 2 chances to answer correctly
+                //incorrectAnswer(); //call method to pick condemning response
                 
                 //have user guess again
-                System.out.printf("\nWhat is the correct answer? "); //prompt user
-                guess = scan.nextInt(); //read input from user and assign to variable
+                //System.out.printf("\nWhat is the correct answer? "); //prompt user
+                //guess = scan.nextInt(); //read input from user and assign to variable
  
-                attempt++; //increment counter
-            }
+                //attempt++; //increment counter
+            //}
             //display correct answer after 2 failed attempts.
-            System.out.printf("You are incorrect.\nThe Correct answer is: %d\n", difference);
-        }
-        else{
+            //System.out.printf("You are incorrect.\nThe Correct answer is: %d\n", difference);
+        //}
+        //else{
             //user guessed correctly
-            correctAnswer(); //call method to pick affirming response
-        }
+            //correctAnswer(); //call method to pick affirming response
+        //}
+        
+        return difference;
     }
 
 
-    //method to ask a multiplication problem
-    public void multiply (){
+    //method to calculate a multiplication problem
+    public int multiply (int num1, int num2){
 
-	//declare local variables
-	int num1 = 1 + rand.nextInt(9); //random number between 1 and 9
-	int num2 = 1 + rand.nextInt(9); //random number between 1 and 9
-	int product = num1 * num2; //calculate product of 2 numbers
-	int guess = 0;
-        int attempt = 1; //counter
+        this.num1 = num1;
+        this.num2 = num2;
         
-	System.out.printf("\nHow much is %d times %d? ", num1, num2); //prompt user to answer question
-	guess = scan.nextInt(); //read input from user and assign to variable
+        int product = num1 * num2; //calculate product of 2 numbers
+        
+	//declare local variables
+	//int num1 = 1 + rand.nextInt(9); //random number between 1 and 9
+	//int num2 = 1 + rand.nextInt(9); //random number between 1 and 9
+	//int product = num1 * num2; //calculate product of 2 numbers
+	//int guess = 0;
+        //int attempt = 1; //counter
+        
+	//System.out.printf("\nHow much is %d times %d? ", num1, num2); //prompt user to answer question
+	//guess = scan.nextInt(); //read input from user and assign to variable
             
 	//if user's guess is incorrect
-	if(guess != product){
-            while(attempt < 2){ //loop 2 times to give the user 2 chances to answer correctly
-                incorrectAnswer(); //call method to pick condemning response
+	//if(guess != product){
+            //while(attempt < 2){ //loop 2 times to give the user 2 chances to answer correctly
+                //incorrectAnswer(); //call method to pick condemning response
             
                 //have user guess again
-                System.out.printf("\nWhat is the correct answer? "); //prompt user
-                guess = scan.nextInt(); //read input from user and assign to variable
+                //System.out.printf("\nWhat is the correct answer? "); //prompt user
+                //guess = scan.nextInt(); //read input from user and assign to variable
             
-                attempt++; //increment counter
-            }
+                //attempt++; //increment counter
+            //}
             //display correct answer after 2 failed attempts.
-            System.out.printf("You are incorrect.\nThe Correct answer is: %d\n", product);
-	}
-	else{
+            //System.out.printf("You are incorrect.\nThe Correct answer is: %d\n", product);
+	//}
+	//else{
             //user guessed correctly
-            correctAnswer(); //call method to pick affirming response
-        }
+            //correctAnswer(); //call method to pick affirming response
+        //}
+        
+        return product;
     }
     
 
-    //method to ask a division problem
-    public void division(){
-
+    //method to calculate a division problem
+    public int division(int num1, int num2){
+        
+        this.num1 = num1;
+        this.num2 = (num1 * num2);
+        
+        int quotient = (num2 / num1); //calculate quotient of 2 numbers
+        
 	//declare local variables
-	int num1 = 1 + rand.nextInt(9); //random number between 1 and 9
-	int num2 = num1*(1 + rand.nextInt(9)); //random number between 1 and 9
-	int quotient = (num2 / num1); //calculate quotient of 2 numbers
-	int guess;
-        int attempt = 1; //counter
+	//int num1 = 1 + rand.nextInt(9); //random number between 1 and 9
+	//int num2 = num1*(1 + rand.nextInt(9)); //random number between 1 and 9
+	//int quotient = (num2 / num1); //calculate quotient of 2 numbers
+	//int guess;
+        //int attempt = 1; //counter
         
 
-	System.out.printf("\nHow much is %d divided by %d? ", num2, num1); //prompt user to answer question
-	guess = scan.nextInt(); //read input from user and assign to variable
+	//System.out.printf("\nHow much is %d divided by %d? ", num2, num1); //prompt user to answer question
+	//guess = scan.nextInt(); //read input from user and assign to variable
 
 	//if user's guess is incorrect
-	if(guess != quotient){
-            while(attempt < 2){ //loop 2 times to give the user 2 chances to answer correctly
-                incorrectAnswer(); //call method to pick condemning response
+	//if(guess != quotient){
+            //while(attempt < 2){ //loop 2 times to give the user 2 chances to answer correctly
+                //incorrectAnswer(); //call method to pick condemning response
 
                 //have user guess again
-                System.out.printf("\nWhat is the correct answer? "); //prompt user
-                guess = scan.nextInt(); //read input from user and assign to variable
+                //System.out.printf("\nWhat is the correct answer? "); //prompt user
+                //guess = scan.nextInt(); //read input from user and assign to variable
             
-                attempt++; //increment counter
-            }
+                //attempt++; //increment counter
+            //}
             //display correct answer after 2 failed attempts.
-            System.out.printf("You are incorrect.\nThe Correct answer is: %d\n", quotient);
-	}	
-	else{
+           // System.out.printf("You are incorrect.\nThe Correct answer is: %d\n", quotient);
+	//}	
+	//else{
             //user guessed correctly
-            correctAnswer(); //call method to pick affirming response
-        }
+            //correctAnswer(); //call method to pick affirming response
+        //}
+        
+        return quotient;
     }
 
 
@@ -272,25 +327,26 @@ public class MathGame {
 	switch(answer)
 	{
 	case 1:
-            addition();
+            //addition();
             break;
 	case 2:
-            subtraction();
+            //subtraction();
             break;
 	case 3:
-            multiply();
+            //multiply();
             break;
 	case 4:
-            division();
+            //division();
             break;
 	}
     }
 
 
     //method to determine response to user's correct answer
-    public void correctAnswer(){
+    public String correctAnswer(){
 
-	//declare local variables
+	//initialize local variables
+        String rightAnswer = "";
 	int answer = 1 + rand.nextInt(4);
 
 	//randomly generate response to user's answer
@@ -310,14 +366,16 @@ public class MathGame {
             break;
 	}
 
-	System.out.printf("%s", rightAnswer); //display affirming response
+	//System.out.printf("%s", rightAnswer); //display affirming response
+        return rightAnswer;
     }
 
 
     //method to determine response to user's incorrect answer
-    public void incorrectAnswer(){
+    public String incorrectAnswer(){
 
-	//declare local variables
+	//initialize local variables
+        String wrongAnswer = "";
 	int answer = 1 + rand.nextInt(4);
 
 	//randomly generate response to user's answer
@@ -337,7 +395,8 @@ public class MathGame {
             break;
 	}
         
-	System.out.printf("%s", wrongAnswer); //display condemning response
+	//System.out.printf("%s", wrongAnswer); //display condemning response
+        return wrongAnswer;
     }
  
     
