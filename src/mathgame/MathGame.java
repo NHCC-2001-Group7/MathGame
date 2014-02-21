@@ -54,6 +54,8 @@ public class MathGame {
     //String rightAnswer, wrongAnswer;
     
     int num1, num2;
+    
+    MathGameUI ui = new MathGameUI();
 
 
     //constructor
@@ -201,10 +203,10 @@ public class MathGame {
 	//int attempt = 1; //counter
         
         //If less than 0, ensure it's a positive answer 
-        if(difference <= 0){
-            difference = num2 - num1;
+        //if(difference <= 0){
+            //difference = num2 - num1;
             //System.out.printf("\nHow much is %d minus %d? ", num2, num1); //prompt user to answer question
-        }
+        //}
         //else{
             //System.out.printf("\nHow much is %d minus %d? ", num1, num2); //prompt user to answer question
         //}
@@ -278,10 +280,10 @@ public class MathGame {
     //method to calculate a division problem
     public int division(int num1, int num2){
         
-        this.num1 = num1;
-        this.num2 = (num1 * num2);
+       // this.num1 = num1;
+        //this.num2 = num1 * num2;
         
-        int quotient = (num2 / num1); //calculate quotient of 2 numbers
+        //int quotient = (this.num2 / num1); //calculate quotient of 2 numbers
         
 	//declare local variables
 	//int num1 = 1 + rand.nextInt(9); //random number between 1 and 9
@@ -318,7 +320,7 @@ public class MathGame {
 
 
     //method to ask a random math question
-    public void randomQuestion(){
+    public void randomQuestion(int num1, int num2){
 
 	//declare local variables
 	int answer = 1 + rand.nextInt(4);
@@ -327,7 +329,7 @@ public class MathGame {
 	switch(answer)
 	{
 	case 1:
-            //addition();
+            ui.questionLabel.setText("");
             break;
 	case 2:
             //subtraction();

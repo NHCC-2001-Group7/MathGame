@@ -358,8 +358,14 @@ public class MathGameUI extends javax.swing.JFrame {
         //create 2 random integers, then pass them through the subtraction method
         answer = mathGame.subtraction((1 + rand.nextInt(9)),(1 + rand.nextInt(9)));
         
-        //set label to ask a subtraction question
-        questionLabel.setText("What is " + mathGame.getNum1() + " minus " + mathGame.getNum2() + "? ");
+        //If less than 0, ensure it's a positive answer
+        if(answer <= 0){
+            answer *= (-1); //makes answer positive
+            questionLabel.setText("What is " + mathGame.getNum2() + " minus " + mathGame.getNum1() + "? "); //set label to ask a subtraction question
+        }
+        else{
+            questionLabel.setText("What is " + mathGame.getNum1() + " minus " + mathGame.getNum2() + "? "); //set label to ask a subtraction question
+        }
         
         //set labels to null when button is pressed (clear feedback labels)
         feedbackLabel.setText("");
@@ -384,7 +390,7 @@ public class MathGameUI extends javax.swing.JFrame {
     private void randomButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_randomButtonActionPerformed
         
         //create 2 random integers, then pass them through the random method
-        answer = mathGame.addition((1 + rand.nextInt(9)),(1 + rand.nextInt(9)));
+        answer = mathGame.randomQuestion((1 + rand.nextInt(9)),(1 + rand.nextInt(9)));
         
         //set label to ask addition question
         questionLabel.setText("What is " + mathGame.getNum1() + " plus " + mathGame.getNum2() + "? ");
