@@ -33,26 +33,25 @@ public class MathGameUI extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel2 = new javax.swing.JPanel();
-        addButt = new javax.swing.JButton();
-        multButt = new javax.swing.JButton();
-        divButt = new javax.swing.JButton();
-        subButt1 = new javax.swing.JButton();
-        ranButt = new javax.swing.JButton();
+        addButton = new javax.swing.JButton();
+        multiplyButton = new javax.swing.JButton();
+        divideButton = new javax.swing.JButton();
+        subtractButton = new javax.swing.JButton();
+        randomButton = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
-        question = new javax.swing.JLabel();
+        questionLabel = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
-        feedBack = new javax.swing.JLabel();
-        userAns = new javax.swing.JTextField();
+        feedbackLabel = new javax.swing.JLabel();
+        userInputTextField = new javax.swing.JTextField();
         jPanel5 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        Background = new javax.swing.JLabel();
+        scoreLabel = new javax.swing.JLabel();
+        attemptedLabel = new javax.swing.JLabel();
+        imageLabel = new javax.swing.JLabel();
+        attemptCountLabel = new javax.swing.JLabel();
+        correctCountLabel = new javax.swing.JLabel();
+        background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(700, 368));
         setMinimumSize(new java.awt.Dimension(700, 368));
         getContentPane().setLayout(null);
 
@@ -60,35 +59,35 @@ public class MathGameUI extends javax.swing.JFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Select Problem:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Comic Sans MS", 1, 12), new java.awt.Color(205, 255, 255))); // NOI18N
         jPanel2.setForeground(new java.awt.Color(205, 255, 255));
 
-        addButt.setBackground(new java.awt.Color(51, 255, 0));
-        addButt.setText("Addition");
-        addButt.setMaximumSize(new java.awt.Dimension(73, 23));
-        addButt.setMinimumSize(new java.awt.Dimension(73, 23));
-        addButt.setPreferredSize(new java.awt.Dimension(73, 23));
+        addButton.setBackground(new java.awt.Color(51, 255, 0));
+        addButton.setText("Addition");
+        addButton.setMaximumSize(new java.awt.Dimension(73, 23));
+        addButton.setMinimumSize(new java.awt.Dimension(73, 23));
+        addButton.setPreferredSize(new java.awt.Dimension(73, 23));
 
-        multButt.setBackground(new java.awt.Color(0, 255, 255));
-        multButt.setText("Multiplication");
-        multButt.setMaximumSize(new java.awt.Dimension(73, 23));
-        multButt.setMinimumSize(new java.awt.Dimension(73, 23));
-        multButt.setPreferredSize(new java.awt.Dimension(73, 23));
+        multiplyButton.setBackground(new java.awt.Color(0, 255, 255));
+        multiplyButton.setText("Multiplication");
+        multiplyButton.setMaximumSize(new java.awt.Dimension(73, 23));
+        multiplyButton.setMinimumSize(new java.awt.Dimension(73, 23));
+        multiplyButton.setPreferredSize(new java.awt.Dimension(73, 23));
 
-        divButt.setBackground(new java.awt.Color(255, 255, 0));
-        divButt.setText("Division");
-        divButt.setMaximumSize(new java.awt.Dimension(73, 23));
-        divButt.setMinimumSize(new java.awt.Dimension(73, 23));
-        divButt.setPreferredSize(new java.awt.Dimension(73, 23));
+        divideButton.setBackground(new java.awt.Color(255, 255, 0));
+        divideButton.setText("Division");
+        divideButton.setMaximumSize(new java.awt.Dimension(73, 23));
+        divideButton.setMinimumSize(new java.awt.Dimension(73, 23));
+        divideButton.setPreferredSize(new java.awt.Dimension(73, 23));
 
-        subButt1.setBackground(new java.awt.Color(255, 204, 0));
-        subButt1.setText("Subtraction");
-        subButt1.setMaximumSize(new java.awt.Dimension(73, 23));
-        subButt1.setMinimumSize(new java.awt.Dimension(73, 23));
-        subButt1.setPreferredSize(new java.awt.Dimension(73, 23));
+        subtractButton.setBackground(new java.awt.Color(255, 204, 0));
+        subtractButton.setText("Subtraction");
+        subtractButton.setMaximumSize(new java.awt.Dimension(73, 23));
+        subtractButton.setMinimumSize(new java.awt.Dimension(73, 23));
+        subtractButton.setPreferredSize(new java.awt.Dimension(73, 23));
 
-        ranButt.setBackground(new java.awt.Color(255, 255, 255));
-        ranButt.setText("Random");
-        ranButt.setMaximumSize(new java.awt.Dimension(73, 23));
-        ranButt.setMinimumSize(new java.awt.Dimension(73, 23));
-        ranButt.setPreferredSize(new java.awt.Dimension(73, 23));
+        randomButton.setBackground(new java.awt.Color(255, 255, 255));
+        randomButton.setText("Random");
+        randomButton.setMaximumSize(new java.awt.Dimension(73, 23));
+        randomButton.setMinimumSize(new java.awt.Dimension(73, 23));
+        randomButton.setPreferredSize(new java.awt.Dimension(73, 23));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -96,26 +95,26 @@ public class MathGameUI extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(addButt, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
-                    .addComponent(multButt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(divButt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(subButt1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ranButt, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(addButton, javax.swing.GroupLayout.DEFAULT_SIZE, 118, Short.MAX_VALUE)
+                    .addComponent(multiplyButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(divideButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(subtractButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(randomButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(addButt, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(subButt1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(subtractButton, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(multButt, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(multiplyButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(divButt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(divideButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ranButt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(randomButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(77, 77, 77))
         );
 
@@ -126,22 +125,22 @@ public class MathGameUI extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(0, 0, 0));
         jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Solve:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Comic Sans MS", 1, 14), new java.awt.Color(205, 255, 255))); // NOI18N
 
-        question.setBackground(new java.awt.Color(255, 255, 255));
-        question.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
-        question.setForeground(new java.awt.Color(0, 255, 255));
-        question.setText("Question Box");
+        questionLabel.setBackground(new java.awt.Color(255, 255, 255));
+        questionLabel.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        questionLabel.setForeground(new java.awt.Color(0, 255, 255));
+        questionLabel.setText("Question Box");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(question, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
+            .addComponent(questionLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addGap(0, 7, Short.MAX_VALUE)
-                .addComponent(question, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(questionLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         getContentPane().add(jPanel3);
@@ -150,9 +149,9 @@ public class MathGameUI extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(0, 0, 0));
         jPanel4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Answer:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Comic Sans MS", 1, 14), new java.awt.Color(205, 255, 255))); // NOI18N
 
-        feedBack.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
-        feedBack.setForeground(new java.awt.Color(79, 213, 214));
-        feedBack.setText("FeedBack");
+        feedbackLabel.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
+        feedbackLabel.setForeground(new java.awt.Color(79, 213, 214));
+        feedbackLabel.setText("FeedBack");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -162,19 +161,19 @@ public class MathGameUI extends javax.swing.JFrame {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(32, 32, 32)
-                        .addComponent(userAns, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(userInputTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(73, 73, 73)
-                        .addComponent(feedBack)))
+                        .addComponent(feedbackLabel)))
                 .addContainerGap(56, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addGap(4, 4, 4)
-                .addComponent(userAns, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(userInputTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(feedBack)
+                .addComponent(feedbackLabel)
                 .addContainerGap(18, Short.MAX_VALUE))
         );
 
@@ -184,20 +183,20 @@ public class MathGameUI extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(0, 0, 0));
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Score:", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Comic Sans MS", 1, 12), new java.awt.Color(205, 255, 255))); // NOI18N
 
-        jLabel2.setForeground(new java.awt.Color(0, 255, 255));
-        jLabel2.setText("Score:");
+        scoreLabel.setForeground(new java.awt.Color(0, 255, 255));
+        scoreLabel.setText("Score:");
 
-        jLabel3.setForeground(new java.awt.Color(0, 255, 255));
-        jLabel3.setText("Attempted:");
+        attemptedLabel.setForeground(new java.awt.Color(0, 255, 255));
+        attemptedLabel.setText("Attempted:");
 
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("**Picture Here**");
+        imageLabel.setForeground(new java.awt.Color(255, 255, 255));
+        imageLabel.setText("**Picture Here**");
 
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("attempts");
+        attemptCountLabel.setForeground(new java.awt.Color(255, 255, 255));
+        attemptCountLabel.setText("attempts");
 
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Correct");
+        correctCountLabel.setForeground(new java.awt.Color(255, 255, 255));
+        correctCountLabel.setText("Correct");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -206,17 +205,17 @@ public class MathGameUI extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(imageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(scoreLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel8))
+                                .addComponent(correctCountLabel))
                             .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(jLabel3)
+                                .addComponent(attemptedLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jLabel7)))
+                                .addComponent(attemptCountLabel)))
                         .addGap(0, 70, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -225,22 +224,22 @@ public class MathGameUI extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel8))
+                    .addComponent(scoreLabel)
+                    .addComponent(correctCountLabel))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel7))
+                    .addComponent(attemptedLabel)
+                    .addComponent(attemptCountLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(imageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel5);
         jPanel5.setBounds(460, 110, 210, 210);
 
-        Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageDisplay/Math Game 3.jpg"))); // NOI18N
-        getContentPane().add(Background);
-        Background.setBounds(0, -10, 710, 360);
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageDisplay/Math Game 3.jpg"))); // NOI18N
+        getContentPane().add(background);
+        background.setBounds(0, -10, 710, 360);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -282,23 +281,23 @@ public class MathGameUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Background;
-    private javax.swing.JButton addButt;
-    private javax.swing.JButton divButt;
-    private javax.swing.JLabel feedBack;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
+    private javax.swing.JButton addButton;
+    private javax.swing.JLabel attemptCountLabel;
+    private javax.swing.JLabel attemptedLabel;
+    private javax.swing.JLabel background;
+    private javax.swing.JLabel correctCountLabel;
+    private javax.swing.JButton divideButton;
+    private javax.swing.JLabel feedbackLabel;
+    private javax.swing.JLabel imageLabel;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JButton multButt;
-    private javax.swing.JLabel question;
-    private javax.swing.JButton ranButt;
-    private javax.swing.JButton subButt1;
-    private javax.swing.JTextField userAns;
+    private javax.swing.JButton multiplyButton;
+    private javax.swing.JLabel questionLabel;
+    private javax.swing.JButton randomButton;
+    private javax.swing.JLabel scoreLabel;
+    private javax.swing.JButton subtractButton;
+    private javax.swing.JTextField userInputTextField;
     // End of variables declaration//GEN-END:variables
 }
