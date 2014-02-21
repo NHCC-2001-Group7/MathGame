@@ -8,13 +8,23 @@ package mathgame;
 
 import java.awt.image.ImageObserver;
 import javax.swing.JFrame;
+import java.util.Random;
 
 /**
  *
  * @author ii4141nn
  */
 public class MathGameUI extends javax.swing.JFrame {
-
+    
+    MathGame mathGame = new MathGame();
+    
+    Random rand = new Random(); //create new random number generator
+    
+    //declare field variables
+    int answer, guess;
+    
+    
+    
     /**
      * Creates new form ImageDisplay
      */
@@ -43,6 +53,7 @@ public class MathGameUI extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         feedbackLabel = new javax.swing.JLabel();
         userInputTextField = new javax.swing.JTextField();
+        feedbackLabel2 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         scoreLabel = new javax.swing.JLabel();
         attemptedLabel = new javax.swing.JLabel();
@@ -64,30 +75,55 @@ public class MathGameUI extends javax.swing.JFrame {
         addButton.setMaximumSize(new java.awt.Dimension(73, 23));
         addButton.setMinimumSize(new java.awt.Dimension(73, 23));
         addButton.setPreferredSize(new java.awt.Dimension(73, 23));
+        addButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addButtonActionPerformed(evt);
+            }
+        });
 
         multiplyButton.setBackground(new java.awt.Color(0, 255, 255));
         multiplyButton.setText("Multiplication");
         multiplyButton.setMaximumSize(new java.awt.Dimension(73, 23));
         multiplyButton.setMinimumSize(new java.awt.Dimension(73, 23));
         multiplyButton.setPreferredSize(new java.awt.Dimension(73, 23));
+        multiplyButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                multiplyButtonActionPerformed(evt);
+            }
+        });
 
         divideButton.setBackground(new java.awt.Color(255, 255, 0));
         divideButton.setText("Division");
         divideButton.setMaximumSize(new java.awt.Dimension(73, 23));
         divideButton.setMinimumSize(new java.awt.Dimension(73, 23));
         divideButton.setPreferredSize(new java.awt.Dimension(73, 23));
+        divideButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                divideButtonActionPerformed(evt);
+            }
+        });
 
         subtractButton.setBackground(new java.awt.Color(255, 204, 0));
         subtractButton.setText("Subtraction");
         subtractButton.setMaximumSize(new java.awt.Dimension(73, 23));
         subtractButton.setMinimumSize(new java.awt.Dimension(73, 23));
         subtractButton.setPreferredSize(new java.awt.Dimension(73, 23));
+        subtractButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                subtractButtonActionPerformed(evt);
+            }
+        });
 
         randomButton.setBackground(new java.awt.Color(255, 255, 255));
         randomButton.setText("Random");
         randomButton.setMaximumSize(new java.awt.Dimension(73, 23));
         randomButton.setMinimumSize(new java.awt.Dimension(73, 23));
         randomButton.setPreferredSize(new java.awt.Dimension(73, 23));
+        randomButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                randomButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -153,6 +189,16 @@ public class MathGameUI extends javax.swing.JFrame {
         feedbackLabel.setForeground(new java.awt.Color(79, 213, 214));
         feedbackLabel.setText("FeedBack");
 
+        userInputTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                userInputTextFieldActionPerformed(evt);
+            }
+        });
+
+        feedbackLabel2.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
+        feedbackLabel2.setForeground(new java.awt.Color(79, 213, 214));
+        feedbackLabel2.setText("FeedBack2");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -164,7 +210,9 @@ public class MathGameUI extends javax.swing.JFrame {
                         .addComponent(userInputTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(73, 73, 73)
-                        .addComponent(feedbackLabel)))
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(feedbackLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(feedbackLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(56, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -174,7 +222,8 @@ public class MathGameUI extends javax.swing.JFrame {
                 .addComponent(userInputTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(feedbackLabel)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(feedbackLabel2))
         );
 
         getContentPane().add(jPanel4);
@@ -244,6 +293,108 @@ public class MathGameUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
+        
+        //create 2 random integers, then pass them through the addition method
+        answer = mathGame.addition((1 + rand.nextInt(9)),(1 + rand.nextInt(9)));
+        
+        //set label to ask an addition question
+        questionLabel.setText("What is " + mathGame.getNum1() + " plus " + mathGame.getNum2() + "? ");
+        
+        //set labels to null when button is pressed (clear feedback labels)
+        feedbackLabel.setText("");
+        feedbackLabel2.setText("");
+        
+        //userInputTextField.selectAll(); //highlights TextField
+    }//GEN-LAST:event_addButtonActionPerformed
+
+    private void userInputTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userInputTextFieldActionPerformed
+        
+        //initialize local variable
+        int attempt = 1; //counter
+        
+        guess = Integer.parseInt(userInputTextField.getText()); //read string input from user, convert to integer and assign to variable
+        userInputTextField.selectAll(); //highlights TextField
+        
+        //if user's guess is incorrect
+        if(guess != answer){
+            while(attempt < 2){ //loop 2 times to give the user 2 chances to answer correctly
+                
+                //set labels
+                feedbackLabel.setText(mathGame.incorrectAnswer()); //call method to pick random incorrect answer phrase
+                feedbackLabel2.setText("Please try again! "); //prompt user to guess again
+                
+                guess = Integer.parseInt(userInputTextField.getText()); //read string input from user, convert to integer and assign to variable
+                userInputTextField.selectAll(); //highlights TextField
+                
+                attempt++; //increment counter
+            }
+            //display correct answer after 2 failed attempts.
+            feedbackLabel.setText("You are incorrect.");
+            feedbackLabel2.setText("The Correct answer is " + answer);
+            questionLabel.setText(""); //clear question label
+        }
+        else{ //user guessed correctly
+            feedbackLabel.setText(mathGame.correctAnswer()); //call method to pick random correct answer phrase
+        }
+    }//GEN-LAST:event_userInputTextFieldActionPerformed
+
+    private void multiplyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_multiplyButtonActionPerformed
+        
+        //create 2 random integers, then pass them through the multiply method
+        answer = mathGame.multiply((1 + rand.nextInt(9)),(1 + rand.nextInt(9)));
+        
+        //set label to ask a multiplication question
+        questionLabel.setText("What is " + mathGame.getNum1() + " times " + mathGame.getNum2() + "? ");
+        
+        //set labels to null when button is pressed (clear feedback labels)
+        feedbackLabel.setText("");
+        feedbackLabel2.setText("");
+        
+    }//GEN-LAST:event_multiplyButtonActionPerformed
+
+    private void subtractButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subtractButtonActionPerformed
+        
+        //create 2 random integers, then pass them through the subtraction method
+        answer = mathGame.subtraction((1 + rand.nextInt(9)),(1 + rand.nextInt(9)));
+        
+        //set label to ask a subtraction question
+        questionLabel.setText("What is " + mathGame.getNum1() + " minus " + mathGame.getNum2() + "? ");
+        
+        //set labels to null when button is pressed (clear feedback labels)
+        feedbackLabel.setText("");
+        feedbackLabel2.setText("");
+        
+    }//GEN-LAST:event_subtractButtonActionPerformed
+
+    private void divideButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_divideButtonActionPerformed
+        
+        //create 2 random integers, then pass them through the division method
+        answer = mathGame.division((1 + rand.nextInt(9)),(1 + rand.nextInt(9)));
+        
+        //set label to ask a division question
+        questionLabel.setText("What is " + mathGame.getNum2() + " divided by " + mathGame.getNum1() + "? ");
+        
+        //set labels to null when button is pressed (clear feedback labels)
+        feedbackLabel.setText("");
+        feedbackLabel2.setText("");
+        
+    }//GEN-LAST:event_divideButtonActionPerformed
+
+    private void randomButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_randomButtonActionPerformed
+        
+        //create 2 random integers, then pass them through the random method
+        answer = mathGame.addition((1 + rand.nextInt(9)),(1 + rand.nextInt(9)));
+        
+        //set label to ask addition question
+        questionLabel.setText("What is " + mathGame.getNum1() + " plus " + mathGame.getNum2() + "? ");
+        
+        //set labels to null when button is pressed (clear feedback labels)
+        feedbackLabel.setText("");
+        feedbackLabel2.setText("");
+        
+    }//GEN-LAST:event_randomButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -288,13 +439,14 @@ public class MathGameUI extends javax.swing.JFrame {
     private javax.swing.JLabel correctCountLabel;
     private javax.swing.JButton divideButton;
     private javax.swing.JLabel feedbackLabel;
+    private javax.swing.JLabel feedbackLabel2;
     private javax.swing.JLabel imageLabel;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JButton multiplyButton;
-    private javax.swing.JLabel questionLabel;
+    public javax.swing.JLabel questionLabel;
     private javax.swing.JButton randomButton;
     private javax.swing.JLabel scoreLabel;
     private javax.swing.JButton subtractButton;
