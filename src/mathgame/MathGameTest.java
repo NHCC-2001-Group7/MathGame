@@ -28,5 +28,11 @@ public class MathGameTest {
         
         //call startGame method
         game.startGame();
+        
+        //uncomment the code below when ready to code to GUI!
+        
+        //create and display GUI
+        //MathGameUI ui = new MathGameUI();
+        //ui.setVisible(true);
     }
 }
