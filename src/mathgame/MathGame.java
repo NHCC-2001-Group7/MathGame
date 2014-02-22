@@ -40,22 +40,22 @@ package mathgame;
 
 //import classes
 import java.util.Random;
-import java.util.Scanner;
+//import java.util.Scanner;
 
 
 public class MathGame {
     
     Random rand = new Random(); //create new random number generator
-    Scanner scan = new Scanner(System.in); //create new scanner
+    //Scanner scan = new Scanner(System.in); //create new scanner
 
     
-    //declare instance variables
-    String response, input;
+    
+    //String response, input;
     //String rightAnswer, wrongAnswer;
     
+    //declare field variables
     int num1, num2;
     
-    MathGameUI ui = new MathGameUI();
 
 
     //constructor
@@ -66,60 +66,60 @@ public class MathGame {
 
 
     //method to start game
-    public void startGame (){
-
-	//loops questions until user types no
-	do{
-            System.out.printf("\nWhat type of math question would you like?\nAddition\nSubtraction\nMultiplication\nDivision\nRandom\n\n"); //prompt user
-            pickQuestion(); //call method to have user pick which type of question to answer
-
-            //see if user wants to play again
-            System.out.printf("\nWould you like to try another question? Yes or No\n"); //prompt user
-            response = scan.next(); //read input from user and assign to variable
-            validateResponse(); //validate response
-        }while(!response.equalsIgnoreCase("no")); //keeps looping until user types no
-        
-        System.out.printf("Okay, Have a nice day!"); //farewell message
-    }
+//    public void startGame (){
+//
+//	//loops questions until user types no
+//	do{
+//            System.out.printf("\nWhat type of math question would you like?\nAddition\nSubtraction\nMultiplication\nDivision\nRandom\n\n"); //prompt user
+//            pickQuestion(); //call method to have user pick which type of question to answer
+//
+//            //see if user wants to play again
+//            System.out.printf("\nWould you like to try another question? Yes or No\n"); //prompt user
+//            response = scan.next(); //read input from user and assign to variable
+//            validateResponse(); //validate response
+//        }while(!response.equalsIgnoreCase("no")); //keeps looping until user types no
+//        
+//        System.out.printf("Okay, Have a nice day!"); //farewell message
+//    }
     
     
-    //method to validate user's response
-    public void validateResponse(){
-        
-        //if response is not yes or no
-        while(!(response.equalsIgnoreCase("yes") || response.equalsIgnoreCase("no"))){
-            System.out.println("Invalid input!"); //chastise user
-            System.out.print("\nWould you like to try another question? Yes or No\n"); //prompt user again
-            response = scan.next(); //read input and assign to variable
-        }
-    }
+//    //method to validate user's response
+//    public void validateResponse(){
+//        
+//        //if response is not yes or no
+//        while(!(response.equalsIgnoreCase("yes") || response.equalsIgnoreCase("no"))){
+//            System.out.println("Invalid input!"); //chastise user
+//            System.out.print("\nWould you like to try another question? Yes or No\n"); //prompt user again
+//            response = scan.next(); //read input and assign to variable
+//        }
+//    }
 
     
     //method to allow user to choose which type of question to ask
-    public void pickQuestion(){
-        
-	input = scan.next(); //read input from user and assign to variable
-
-	//selects which type of question to ask
-	switch(input.toLowerCase())
-	{
-	case "addition":
-            //addition(); 
-            break;
-        case "subtraction":
-            //subtraction();
-            break;
-	case "multiplication":
-            //multiply();
-            break;
-	case "division":
-            //division();
-            break;
-	case "random":
-            //randomQuestion();
-            break;
-	}
-    }
+//    public void pickQuestion(){
+//        
+//	input = scan.next(); //read input from user and assign to variable
+//
+//	//selects which type of question to ask
+//	switch(input.toLowerCase())
+//	{
+//	case "addition":
+//            //addition(); 
+//            break;
+//        case "subtraction":
+//            //subtraction();
+//            break;
+//	case "multiplication":
+//            //multiply();
+//            break;
+//	case "division":
+//            //division();
+//            break;
+//	case "random":
+//            //randomQuestion();
+//            break;
+//	}
+//    }
     
     
     //method to retrieve num1
@@ -149,10 +149,13 @@ public class MathGame {
     //method to calculate an addition problem
     public int addition(int num1, int num2){
         
+        //pass integers from method parameters to field variables
         this.num1 = num1;
         this.num2 = num2;
         
         int sum = num1 + num2; //calculate sum of 2 numbers
+        
+        return sum;
         
 	//declare local variables
 	//int num1 = 1 + rand.nextInt(9); //random number between 1 and 9
@@ -181,19 +184,20 @@ public class MathGame {
         //else{
             //user guessed correctly
             //correctAnswer(); //call method to pick affirming response
-        //}
-        
-        return sum;
+        //}  
     }
 
 
     //method to calculate a subtraction problem
     public int subtraction(int num1, int num2){
         
+        //pass integers from method parameters to field variables
         this.num1 = num1;
         this.num2 = num2;
         
         int difference = num1 - num2; //calculate difference of 2 numbers
+        
+        return difference;
         
 	//declare local variables
 	//int num1 = 1 + rand.nextInt(9); //random number between 1 and 9
@@ -230,19 +234,20 @@ public class MathGame {
         //else{
             //user guessed correctly
             //correctAnswer(); //call method to pick affirming response
-        //}
-        
-        return difference;
+        //}  
     }
 
 
     //method to calculate a multiplication problem
     public int multiply (int num1, int num2){
-
+        
+        //pass integers from method parameters to field variables
         this.num1 = num1;
         this.num2 = num2;
         
         int product = num1 * num2; //calculate product of 2 numbers
+        
+        return product;
         
 	//declare local variables
 	//int num1 = 1 + rand.nextInt(9); //random number between 1 and 9
@@ -271,19 +276,20 @@ public class MathGame {
 	//else{
             //user guessed correctly
             //correctAnswer(); //call method to pick affirming response
-        //}
-        
-        return product;
+        //}  
     }
     
 
     //method to calculate a division problem
     public int division(int num1, int num2){
         
-       // this.num1 = num1;
-        //this.num2 = num1 * num2;
+        //pass integers from method parameters to field variable
+        this.num1 = num1;
+        this.num2 = num1 * num2;
         
-        //int quotient = (this.num2 / num1); //calculate quotient of 2 numbers
+        int quotient = (this.num2 / num1); //calculate quotient of 2 numbers
+        
+        return quotient;
         
 	//declare local variables
 	//int num1 = 1 + rand.nextInt(9); //random number between 1 and 9
@@ -313,35 +319,42 @@ public class MathGame {
 	//else{
             //user guessed correctly
             //correctAnswer(); //call method to pick affirming response
-        //}
-        
-        return quotient;
+        //}  
     }
 
 
-    //method to ask a random math question
-    public void randomQuestion(int num1, int num2){
-
-	//declare local variables
-	int answer = 1 + rand.nextInt(4);
-
-	//randomly generate math questions
-	switch(answer)
-	{
-	case 1:
-            ui.questionLabel.setText("");
-            break;
-	case 2:
-            //subtraction();
-            break;
-	case 3:
-            //multiply();
-            break;
-	case 4:
-            //division();
-            break;
-	}
-    }
+//    //method to ask a random math question
+//    public int randomQuestion(int num1, int num2){
+//        
+//        this.num1 = num1;
+//        this.num2 = num2;
+//        
+//	//declare local variables
+//	int answer = 1 + rand.nextInt(4);
+//        int random = 0;
+//        
+//	//randomly generate math questions
+//	switch(answer)
+//	{
+//	case 1:
+//            random = addition(this.num1, this.num2);
+//            ui.questionLabel.setText("What is " + getNum1() + " plus " + getNum2() + "? ");
+//            break;
+//	case 2:
+//            random = subtraction(this.num1, this.num2);
+//            ui.questionLabel.setText("What is " + getNum1() + " minus " + getNum2() + "? ");
+//            break;
+//	case 3:
+//            random = multiply(this.num1, this.num2);
+//            ui.questionLabel.setText("What is " + getNum1() + " times " + getNum2() + "? ");
+//            break;
+//	case 4:
+//            random = division(this.num1, this.num2);
+//            ui.questionLabel.setText("What is " + getNum2() + " divided by " + getNum1() + "? ");
+//            break;
+//	}
+//        return random;
+//    }
 
 
     //method to determine response to user's correct answer
@@ -349,7 +362,7 @@ public class MathGame {
 
 	//initialize local variables
         String rightAnswer = "";
-	int answer = 1 + rand.nextInt(4);
+	int answer = 1 + rand.nextInt(4); //create random number
 
 	//randomly generate response to user's answer
 	switch(answer)
@@ -378,7 +391,7 @@ public class MathGame {
 
 	//initialize local variables
         String wrongAnswer = "";
-	int answer = 1 + rand.nextInt(4);
+	int answer = 1 + rand.nextInt(4); //create random number
 
 	//randomly generate response to user's answer
 	switch(answer)
