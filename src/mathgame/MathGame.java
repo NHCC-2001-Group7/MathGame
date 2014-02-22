@@ -40,87 +40,23 @@ package mathgame;
 
 //import classes
 import java.util.Random;
-//import java.util.Scanner;
 
 
 public class MathGame {
     
     Random rand = new Random(); //create new random number generator
-    //Scanner scan = new Scanner(System.in); //create new scanner
-
     
-    
-    //String response, input;
-    //String rightAnswer, wrongAnswer;
     
     //declare field variables
     int num1, num2;
     
-
-
+    
     //constructor
     public MathGame (){
         
         
     }
 
-
-    //method to start game
-//    public void startGame (){
-//
-//	//loops questions until user types no
-//	do{
-//            System.out.printf("\nWhat type of math question would you like?\nAddition\nSubtraction\nMultiplication\nDivision\nRandom\n\n"); //prompt user
-//            pickQuestion(); //call method to have user pick which type of question to answer
-//
-//            //see if user wants to play again
-//            System.out.printf("\nWould you like to try another question? Yes or No\n"); //prompt user
-//            response = scan.next(); //read input from user and assign to variable
-//            validateResponse(); //validate response
-//        }while(!response.equalsIgnoreCase("no")); //keeps looping until user types no
-//        
-//        System.out.printf("Okay, Have a nice day!"); //farewell message
-//    }
-    
-    
-//    //method to validate user's response
-//    public void validateResponse(){
-//        
-//        //if response is not yes or no
-//        while(!(response.equalsIgnoreCase("yes") || response.equalsIgnoreCase("no"))){
-//            System.out.println("Invalid input!"); //chastise user
-//            System.out.print("\nWould you like to try another question? Yes or No\n"); //prompt user again
-//            response = scan.next(); //read input and assign to variable
-//        }
-//    }
-
-    
-    //method to allow user to choose which type of question to ask
-//    public void pickQuestion(){
-//        
-//	input = scan.next(); //read input from user and assign to variable
-//
-//	//selects which type of question to ask
-//	switch(input.toLowerCase())
-//	{
-//	case "addition":
-//            //addition(); 
-//            break;
-//        case "subtraction":
-//            //subtraction();
-//            break;
-//	case "multiplication":
-//            //multiply();
-//            break;
-//	case "division":
-//            //division();
-//            break;
-//	case "random":
-//            //randomQuestion();
-//            break;
-//	}
-//    }
-    
     
     //method to retrieve num1
     public int getNum1() {
@@ -155,36 +91,7 @@ public class MathGame {
         
         int sum = num1 + num2; //calculate sum of 2 numbers
         
-        return sum;
-        
-	//declare local variables
-	//int num1 = 1 + rand.nextInt(9); //random number between 1 and 9
-	//int num2 = 1 + rand.nextInt(9); //random number between 1 and 9
-	
-	//int guess = 0;
-        //int attempt = 1; //counter
-        
-	//System.out.printf("\nHow much is %d plus %d? ", num1, num2); //prompt user to answer question
-	//guess = scan.nextInt(); //read input from user and assign to variable
-
-        //if user's guess is incorrect
-        //if(guess != sum){
-            //while(attempt < 2){ //loop 2 times to give the user 2 chances to answer correctly
-                //incorrectAnswer(); //call method to pick condemning response
-                
-                //have user guess again
-                //System.out.printf("\nWhat is the correct answer? "); //prompt user
-                //guess = scan.nextInt(); //read input from user and assign to variable
-            
-                //attempt++; //increment counter
-            //}
-            //display correct answer after 2 failed attempts.
-            //System.out.printf("You are incorrect.\nThe Correct answer is: %d\n", sum);
-        //}
-        //else{
-            //user guessed correctly
-            //correctAnswer(); //call method to pick affirming response
-        //}  
+        return sum; 
     }
 
 
@@ -198,43 +105,6 @@ public class MathGame {
         int difference = num1 - num2; //calculate difference of 2 numbers
         
         return difference;
-        
-	//declare local variables
-	//int num1 = 1 + rand.nextInt(9); //random number between 1 and 9
-	//int num2 = 1 + rand.nextInt(9); //random number between 1 and 9
-	//int difference = num1 - num2; //calculate difference of 2 numbers
-	//int guess = 0;
-	//int attempt = 1; //counter
-        
-        //If less than 0, ensure it's a positive answer 
-        //if(difference <= 0){
-            //difference = num2 - num1;
-            //System.out.printf("\nHow much is %d minus %d? ", num2, num1); //prompt user to answer question
-        //}
-        //else{
-            //System.out.printf("\nHow much is %d minus %d? ", num1, num2); //prompt user to answer question
-        //}
- 
-	//guess = scan.nextInt(); //read input from user and assign to variable
-        
-        //if user's guess is incorrect
-        //if(guess != difference){
-            //while(attempt < 2){ //loop 2 times to give the user 2 chances to answer correctly
-                //incorrectAnswer(); //call method to pick condemning response
-                
-                //have user guess again
-                //System.out.printf("\nWhat is the correct answer? "); //prompt user
-                //guess = scan.nextInt(); //read input from user and assign to variable
- 
-                //attempt++; //increment counter
-            //}
-            //display correct answer after 2 failed attempts.
-            //System.out.printf("You are incorrect.\nThe Correct answer is: %d\n", difference);
-        //}
-        //else{
-            //user guessed correctly
-            //correctAnswer(); //call method to pick affirming response
-        //}  
     }
 
 
@@ -248,35 +118,6 @@ public class MathGame {
         int product = num1 * num2; //calculate product of 2 numbers
         
         return product;
-        
-	//declare local variables
-	//int num1 = 1 + rand.nextInt(9); //random number between 1 and 9
-	//int num2 = 1 + rand.nextInt(9); //random number between 1 and 9
-	//int product = num1 * num2; //calculate product of 2 numbers
-	//int guess = 0;
-        //int attempt = 1; //counter
-        
-	//System.out.printf("\nHow much is %d times %d? ", num1, num2); //prompt user to answer question
-	//guess = scan.nextInt(); //read input from user and assign to variable
-            
-	//if user's guess is incorrect
-	//if(guess != product){
-            //while(attempt < 2){ //loop 2 times to give the user 2 chances to answer correctly
-                //incorrectAnswer(); //call method to pick condemning response
-            
-                //have user guess again
-                //System.out.printf("\nWhat is the correct answer? "); //prompt user
-                //guess = scan.nextInt(); //read input from user and assign to variable
-            
-                //attempt++; //increment counter
-            //}
-            //display correct answer after 2 failed attempts.
-            //System.out.printf("You are incorrect.\nThe Correct answer is: %d\n", product);
-	//}
-	//else{
-            //user guessed correctly
-            //correctAnswer(); //call method to pick affirming response
-        //}  
     }
     
 
@@ -290,71 +131,7 @@ public class MathGame {
         int quotient = (this.num2 / num1); //calculate quotient of 2 numbers
         
         return quotient;
-        
-	//declare local variables
-	//int num1 = 1 + rand.nextInt(9); //random number between 1 and 9
-	//int num2 = num1*(1 + rand.nextInt(9)); //random number between 1 and 9
-	//int quotient = (num2 / num1); //calculate quotient of 2 numbers
-	//int guess;
-        //int attempt = 1; //counter
-        
-
-	//System.out.printf("\nHow much is %d divided by %d? ", num2, num1); //prompt user to answer question
-	//guess = scan.nextInt(); //read input from user and assign to variable
-
-	//if user's guess is incorrect
-	//if(guess != quotient){
-            //while(attempt < 2){ //loop 2 times to give the user 2 chances to answer correctly
-                //incorrectAnswer(); //call method to pick condemning response
-
-                //have user guess again
-                //System.out.printf("\nWhat is the correct answer? "); //prompt user
-                //guess = scan.nextInt(); //read input from user and assign to variable
-            
-                //attempt++; //increment counter
-            //}
-            //display correct answer after 2 failed attempts.
-           // System.out.printf("You are incorrect.\nThe Correct answer is: %d\n", quotient);
-	//}	
-	//else{
-            //user guessed correctly
-            //correctAnswer(); //call method to pick affirming response
-        //}  
     }
-
-
-//    //method to ask a random math question
-//    public int randomQuestion(int num1, int num2){
-//        
-//        this.num1 = num1;
-//        this.num2 = num2;
-//        
-//	//declare local variables
-//	int answer = 1 + rand.nextInt(4);
-//        int random = 0;
-//        
-//	//randomly generate math questions
-//	switch(answer)
-//	{
-//	case 1:
-//            random = addition(this.num1, this.num2);
-//            ui.questionLabel.setText("What is " + getNum1() + " plus " + getNum2() + "? ");
-//            break;
-//	case 2:
-//            random = subtraction(this.num1, this.num2);
-//            ui.questionLabel.setText("What is " + getNum1() + " minus " + getNum2() + "? ");
-//            break;
-//	case 3:
-//            random = multiply(this.num1, this.num2);
-//            ui.questionLabel.setText("What is " + getNum1() + " times " + getNum2() + "? ");
-//            break;
-//	case 4:
-//            random = division(this.num1, this.num2);
-//            ui.questionLabel.setText("What is " + getNum2() + " divided by " + getNum1() + "? ");
-//            break;
-//	}
-//        return random;
-//    }
 
 
     //method to determine response to user's correct answer
@@ -380,8 +157,6 @@ public class MathGame {
             rightAnswer = "Keep up the good work!\n";
             break;
 	}
-
-	//System.out.printf("%s", rightAnswer); //display affirming response
         return rightAnswer;
     }
 
@@ -409,10 +184,6 @@ public class MathGame {
             wrongAnswer = "No. Keep trying.";
             break;
 	}
-        
-	//System.out.printf("%s", wrongAnswer); //display condemning response
         return wrongAnswer;
-    }
- 
-    
+    } 
 }

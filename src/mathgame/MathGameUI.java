@@ -7,15 +7,24 @@
 package mathgame;
 
 
+/**
+ *@authors: Mike Plucker, Billy Lam, Xavier Porter
+ * @Class: CSCI 2001-51
+ * @Due Date: 02/25/14
+ * 
+ * @Version 1.00
+ * 
+ * 
+ * GUI for MathGame
+ */
+
+
 //import classes
 import java.awt.image.ImageObserver;
 import javax.swing.JFrame;
 import java.util.Random;
 
-/**
- *
- * @author ii4141nn
- */
+
 public class MathGameUI extends javax.swing.JFrame {
     
     MathGame mathGame = new MathGame(); //create MathGame object

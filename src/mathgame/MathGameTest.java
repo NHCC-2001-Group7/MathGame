@@ -23,14 +23,6 @@ public class MathGameTest {
     
     public static void main(String[] args){
         
-        //create MathGame object
-        //MathGame game = new MathGame();
-        
-        //call startGame method
-        //game.startGame();
-        
-        //uncomment the code below when ready to code to GUI!
-        
         //create and display GUI
         MathGameUI ui = new MathGameUI();
         ui.setVisible(true);
