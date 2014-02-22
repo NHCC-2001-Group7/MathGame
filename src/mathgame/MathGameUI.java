@@ -190,6 +190,7 @@ public class MathGameUI extends javax.swing.JFrame {
         feedbackLabel.setForeground(new java.awt.Color(79, 213, 214));
         feedbackLabel.setText("FeedBack");
 
+        userInputTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         userInputTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 userInputTextFieldActionPerformed(evt);
@@ -306,7 +307,8 @@ public class MathGameUI extends javax.swing.JFrame {
         feedbackLabel.setText("");
         feedbackLabel2.setText("");
         
-        //userInputTextField.selectAll(); //highlights TextField
+        userInputTextField.requestFocus(); //focus back on the textField after clicking button
+        userInputTextField.selectAll(); //highlights TextField
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void userInputTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userInputTextFieldActionPerformed
@@ -351,6 +353,9 @@ public class MathGameUI extends javax.swing.JFrame {
         //set labels to null when button is pressed (clear feedback labels)
         feedbackLabel.setText("");
         feedbackLabel2.setText("");  
+        
+        userInputTextField.requestFocus(); //focus back on the textField after clicking button
+        userInputTextField.selectAll(); //highlights TextField
     }//GEN-LAST:event_multiplyButtonActionPerformed
 
     private void subtractButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subtractButtonActionPerformed
@@ -370,6 +375,9 @@ public class MathGameUI extends javax.swing.JFrame {
         //set labels to null when button is pressed (clear feedback labels)
         feedbackLabel.setText("");
         feedbackLabel2.setText("");  
+        
+        userInputTextField.requestFocus(); //focus back on the textField after clicking button
+        userInputTextField.selectAll(); //highlights TextField
     }//GEN-LAST:event_subtractButtonActionPerformed
 
     private void divideButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_divideButtonActionPerformed
@@ -383,6 +391,9 @@ public class MathGameUI extends javax.swing.JFrame {
         //set labels to null when button is pressed (clear feedback labels)
         feedbackLabel.setText("");
         feedbackLabel2.setText("");  
+        
+        userInputTextField.requestFocus(); //focus back on the textField after clicking button
+        userInputTextField.selectAll(); //highlights TextField
     }//GEN-LAST:event_divideButtonActionPerformed
 
     private void randomButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_randomButtonActionPerformed
@@ -432,6 +443,9 @@ public class MathGameUI extends javax.swing.JFrame {
         //set labels to null when button is pressed (clear feedback labels)
         feedbackLabel.setText("");
         feedbackLabel2.setText("");
+        
+        userInputTextField.requestFocus(); //focus back on the textField after clicking button
+        userInputTextField.selectAll(); //highlights TextField
     }//GEN-LAST:event_randomButtonActionPerformed
 
     /**
