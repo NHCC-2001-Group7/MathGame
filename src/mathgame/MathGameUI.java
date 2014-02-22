@@ -6,6 +6,8 @@
 
 package mathgame;
 
+
+//import classes
 import java.awt.image.ImageObserver;
 import javax.swing.JFrame;
 import java.util.Random;
@@ -16,13 +18,12 @@ import java.util.Random;
  */
 public class MathGameUI extends javax.swing.JFrame {
     
-    MathGame mathGame = new MathGame();
+    MathGame mathGame = new MathGame(); //create MathGame object
     
     Random rand = new Random(); //create new random number generator
     
     //declare field variables
     int answer, guess;
-    
     
     
     /**
@@ -349,8 +350,7 @@ public class MathGameUI extends javax.swing.JFrame {
         
         //set labels to null when button is pressed (clear feedback labels)
         feedbackLabel.setText("");
-        feedbackLabel2.setText("");
-        
+        feedbackLabel2.setText("");  
     }//GEN-LAST:event_multiplyButtonActionPerformed
 
     private void subtractButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subtractButtonActionPerformed
@@ -369,8 +369,7 @@ public class MathGameUI extends javax.swing.JFrame {
         
         //set labels to null when button is pressed (clear feedback labels)
         feedbackLabel.setText("");
-        feedbackLabel2.setText("");
-        
+        feedbackLabel2.setText("");  
     }//GEN-LAST:event_subtractButtonActionPerformed
 
     private void divideButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_divideButtonActionPerformed
@@ -383,22 +382,56 @@ public class MathGameUI extends javax.swing.JFrame {
         
         //set labels to null when button is pressed (clear feedback labels)
         feedbackLabel.setText("");
-        feedbackLabel2.setText("");
-        
+        feedbackLabel2.setText("");  
     }//GEN-LAST:event_divideButtonActionPerformed
 
     private void randomButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_randomButtonActionPerformed
         
-        //create 2 random integers, then pass them through the random method
-        answer = mathGame.randomQuestion((1 + rand.nextInt(9)),(1 + rand.nextInt(9)));
+        //create random number
+        int random = 1 + rand.nextInt(4);
         
-        //set label to ask addition question
-        questionLabel.setText("What is " + mathGame.getNum1() + " plus " + mathGame.getNum2() + "? ");
+        //randomly generate math questions
+        switch(random)
+        {
+        case 1:
+            //create 2 random integers, then pass them through the addition method
+            answer = mathGame.addition((1 + rand.nextInt(9)),(1 + rand.nextInt(9)));
+            
+            //set label to ask an addition question
+            questionLabel.setText("What is " + mathGame.getNum1() + " plus " + mathGame.getNum2() + "? ");
+            break;
+        case 2:
+            //create 2 random integers, then pass them through the subtraction method
+            answer = mathGame.subtraction((1 + rand.nextInt(9)),(1 + rand.nextInt(9)));
+        
+            //If less than 0, ensure it's a positive answer
+            if(answer <= 0){
+                answer *= (-1); //makes answer positive
+                questionLabel.setText("What is " + mathGame.getNum2() + " minus " + mathGame.getNum1() + "? "); //set label to ask a subtraction question
+            }
+            else{
+                questionLabel.setText("What is " + mathGame.getNum1() + " minus " + mathGame.getNum2() + "? "); //set label to ask a subtraction question
+            }
+            break;
+        case 3:
+            //create 2 random integers, then pass them through the multiply method
+            answer = mathGame.multiply((1 + rand.nextInt(9)),(1 + rand.nextInt(9)));
+        
+            //set label to ask a multiplication question
+            questionLabel.setText("What is " + mathGame.getNum1() + " times " + mathGame.getNum2() + "? ");
+            break;
+        case 4:
+            //create 2 random integers, then pass them through the division method
+            answer = mathGame.division((1 + rand.nextInt(9)),(1 + rand.nextInt(9)));
+        
+            //set label to ask a division question
+            questionLabel.setText("What is " + mathGame.getNum2() + " divided by " + mathGame.getNum1() + "? ");
+            break; 
+        }
         
         //set labels to null when button is pressed (clear feedback labels)
         feedbackLabel.setText("");
         feedbackLabel2.setText("");
-        
     }//GEN-LAST:event_randomButtonActionPerformed
 
     /**
