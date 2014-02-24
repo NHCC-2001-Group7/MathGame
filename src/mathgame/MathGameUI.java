@@ -37,9 +37,14 @@ public class MathGameUI extends javax.swing.JFrame {
     //int attempt; 
     
     //create sound files
-    File applause = new File("applause1.wav");
+    
+    //String applause = new String("applause.wav");
+    //File applause = new File(getClass().getResource("/Audio/applause.wav"));
+    File applause = new File("applause.wav");
     File buzzer = new File("buzzer.wav");
     File boing = new File("boing.wav");
+    
+    //public Clip sound = soundClip("/applause.wav");
     
     
     /**
@@ -338,7 +343,7 @@ public class MathGameUI extends javax.swing.JFrame {
         //if user's guess is incorrect
         if(guess != answer){
             boolean attempt = true; //counter
-            if(attempt){
+            if(attempt = true){
                 //set labels
                 feedbackLabel.setText(mathGame.incorrectAnswer()); //call method to pick random incorrect answer phrase
                 feedbackLabel2.setText("Please try again! "); //prompt user to guess again

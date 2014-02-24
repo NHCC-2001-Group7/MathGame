@@ -42,6 +42,11 @@ package mathgame;
 import java.util.Random;
 import javax.sound.sampled.*;
 import java.io.*;
+import java.net.URL;
+import javax.swing.JOptionPane;
+
+import sun.audio.*;
+
 
 
 public class MathGame {
@@ -87,13 +92,22 @@ public class MathGame {
     //method to play sound clip
     public void soundClip(File soundFile){
         
+        //Clip clip = null;
+        //InputStream in;
+        //InputStream path = getClass().getResource("/Audio/applause.wav");
         try{
+            //in = new FileInputStream(new File("//Audio//applause.wav"));
+            //AudioStream audios = new AudioStream(in);
+            //AudioPlayer.player.start(audios);
+            //URL url = this.getClass().getResource("audio/applause.wav");
+            //AudioInputStream audio = AudioSystem.getAudioInputStream(getClass().getResource("/Audio/applause.wav"));
+            //AudioInputStream audio = AudioSystem.getAudioInputStream(getClass().getResource(soundFile));
+            
             AudioInputStream audio = AudioSystem.getAudioInputStream(soundFile); //open an audio input stream
             Clip clip = AudioSystem.getClip(); //get a sound clip resource
             clip.open(audio); //open audio clip and load samples from the audio input stream
             clip.start(); //plays sound clip
         }
-        
         catch(UnsupportedAudioFileException uae){
             System.out.println(uae);
         }
@@ -103,6 +117,7 @@ public class MathGame {
         catch(LineUnavailableException lua){
             System.out.println(lua);
         }  
+        //return clip;
     }
     
     
