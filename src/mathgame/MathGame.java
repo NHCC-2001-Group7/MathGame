@@ -40,6 +40,8 @@ package mathgame;
 
 //import classes
 import java.util.Random;
+import javax.sound.sampled.*;
+import java.io.*;
 
 
 public class MathGame {
@@ -81,7 +83,29 @@ public class MathGame {
 	this.num2 = num2;
     }
     
-
+    
+    //method to play sound clip
+    public void soundClip(File soundFile){
+        
+        try{
+            AudioInputStream audio = AudioSystem.getAudioInputStream(soundFile); //open an audio input stream
+            Clip clip = AudioSystem.getClip(); //get a sound clip resource
+            clip.open(audio); //open audio clip and load samples from the audio input stream
+            clip.start(); //plays sound clip
+        }
+        
+        catch(UnsupportedAudioFileException uae){
+            System.out.println(uae);
+        }
+        catch(IOException ioe){
+            System.out.println(ioe);
+        }
+        catch(LineUnavailableException lua){
+            System.out.println(lua);
+        }  
+    }
+    
+    
     //method to calculate an addition problem
     public int addition(int num1, int num2){
         

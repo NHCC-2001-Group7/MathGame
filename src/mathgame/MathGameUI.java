@@ -23,6 +23,7 @@ package mathgame;
 import java.awt.image.ImageObserver;
 import javax.swing.JFrame;
 import java.util.Random;
+import java.io.*;
 
 
 public class MathGameUI extends javax.swing.JFrame {
@@ -32,7 +33,12 @@ public class MathGameUI extends javax.swing.JFrame {
     Random rand = new Random(); //create new random number generator
     
     //declare field variables
-    int answer, guess;
+    int answer, guess, attempt; 
+    
+    //create sound files
+    File applause = new File("applause1.wav");
+    File buzzer = new File("buzzer.wav");
+    File boing = new File("boing.wav");
     
     
     /**
@@ -197,7 +203,9 @@ public class MathGameUI extends javax.swing.JFrame {
 
         feedbackLabel.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         feedbackLabel.setForeground(new java.awt.Color(79, 213, 214));
+        feedbackLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         feedbackLabel.setText("FeedBack");
+        feedbackLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         userInputTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         userInputTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -208,22 +216,21 @@ public class MathGameUI extends javax.swing.JFrame {
 
         feedbackLabel2.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         feedbackLabel2.setForeground(new java.awt.Color(79, 213, 214));
+        feedbackLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         feedbackLabel2.setText("FeedBack2");
+        feedbackLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(userInputTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(73, 73, 73)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(feedbackLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(feedbackLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGap(32, 32, 32)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(feedbackLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(userInputTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
+                        .addComponent(feedbackLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap(56, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
@@ -250,7 +257,7 @@ public class MathGameUI extends javax.swing.JFrame {
         attemptedLabel.setText("Attempted:");
 
         imageLabel.setForeground(new java.awt.Color(255, 255, 255));
-        imageLabel.setText("**Picture Here**");
+        imageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageDisplay/math1.gif"))); // NOI18N
 
         attemptCountLabel.setForeground(new java.awt.Color(255, 255, 255));
         attemptCountLabel.setText("attempts");
@@ -276,7 +283,7 @@ public class MathGameUI extends javax.swing.JFrame {
                                 .addComponent(attemptedLabel)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(attemptCountLabel)))
-                        .addGap(0, 70, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
@@ -306,6 +313,8 @@ public class MathGameUI extends javax.swing.JFrame {
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
         
+        attempt = 1; //counter
+        
         //create 2 random integers, then pass them through the addition method
         answer = mathGame.addition((1 + rand.nextInt(9)),(1 + rand.nextInt(9)));
         
@@ -322,8 +331,7 @@ public class MathGameUI extends javax.swing.JFrame {
 
     private void userInputTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userInputTextFieldActionPerformed
         
-        //initialize local variable
-        int attempt = 1; //counter
+        //attempt = 1; //counter
         
         guess = Integer.parseInt(userInputTextField.getText()); //read string input from user, convert to integer and assign to variable
         userInputTextField.selectAll(); //highlights TextField
@@ -335,6 +343,7 @@ public class MathGameUI extends javax.swing.JFrame {
                 //set labels
                 feedbackLabel.setText(mathGame.incorrectAnswer()); //call method to pick random incorrect answer phrase
                 feedbackLabel2.setText("Please try again! "); //prompt user to guess again
+                mathGame.soundClip(boing); //play sound clip
                 
                 guess = Integer.parseInt(userInputTextField.getText()); //read string input from user, convert to integer and assign to variable
                 userInputTextField.selectAll(); //highlights TextField
@@ -344,10 +353,12 @@ public class MathGameUI extends javax.swing.JFrame {
             //display correct answer after 2 failed attempts.
             feedbackLabel.setText("You are incorrect.");
             feedbackLabel2.setText("The Correct answer is " + answer);
+            mathGame.soundClip(buzzer); //play sound clip
             questionLabel.setText(""); //clear question label
         }
         else{ //user guessed correctly
             feedbackLabel.setText(mathGame.correctAnswer()); //call method to pick random correct answer phrase
+            mathGame.soundClip(applause); //play sound clip
         }
     }//GEN-LAST:event_userInputTextFieldActionPerformed
 
