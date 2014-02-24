@@ -31,7 +31,7 @@ public class MathGameUI extends javax.swing.JFrame {
     
     //declare/instantiate field variables
     private int answer, guess, attempt = 0, correct = 0, incorrect = 0, percentage;
-    private int totalAttempts = correct + incorrect;
+    private int totalAttempts;
     
     private final Random rand = new Random(); //create new random number generator
     
@@ -333,7 +333,9 @@ public class MathGameUI extends javax.swing.JFrame {
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void userInputTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userInputTextFieldActionPerformed
-     
+        
+        totalAttempts = correct + incorrect;
+        
         guess = Integer.parseInt(userInputTextField.getText()); //read string input from user, convert to integer and assign to variable
         userInputTextField.selectAll(); //highlights TextField
         
@@ -357,23 +359,23 @@ public class MathGameUI extends javax.swing.JFrame {
                 questionLabel.setText(""); //clear question label
                 incorrect++; //increment variable
                 incorrectCountLabel.setText("" + incorrect); //display # of questions answered incorrectly
-                 
-                    if(totalAttempts == 10){
-                        percentCorrect();
-                    }
+//                 
+//                    if(totalAttempts == 9){
+//                        percentCorrect();
+//                    }
             }
         }
         else{
             rightAnswer(); //call rightAnswer method
              
-            if(totalAttempts == 10){
-                percentCorrect();
-            }
+//            if(totalAttempts == 9){
+//                percentCorrect();
+//            }
         }
         
-//        if(totalAttempts == 10){
-//            percentCorrect();
-//        }
+        if(totalAttempts == 9){
+            percentCorrect();
+        }
         
     }//GEN-LAST:event_userInputTextFieldActionPerformed
     
@@ -387,6 +389,7 @@ public class MathGameUI extends javax.swing.JFrame {
         feedbackLabel2.setText(""); //clear feedbackLabel2
     }
     
+    //method to calculate score percentage
     private void percentCorrect(){
         
         percentage = (correct/totalAttempts)*100;
