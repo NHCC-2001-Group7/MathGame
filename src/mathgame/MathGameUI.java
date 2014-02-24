@@ -30,7 +30,8 @@ public class MathGameUI extends javax.swing.JFrame {
     MathGame mathGame = new MathGame();
     
     //declare/instantiate field variables
-    private int answer, guess, attempt = 0, correct = 0, incorrect = 0; 
+    private int answer, guess, attempt = 0, correct = 0, incorrect = 0, percentage;
+    private final int totalAttempts = correct + incorrect;
     
     private final Random rand = new Random(); //create new random number generator
     
@@ -76,6 +77,7 @@ public class MathGameUI extends javax.swing.JFrame {
         imageLabel = new javax.swing.JLabel();
         incorrectCountLabel = new javax.swing.JLabel();
         correctCountLabel = new javax.swing.JLabel();
+        totalScoreLabel = new javax.swing.JLabel();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -260,6 +262,9 @@ public class MathGameUI extends javax.swing.JFrame {
 
         correctCountLabel.setForeground(new java.awt.Color(255, 255, 255));
 
+        totalScoreLabel.setFont(new java.awt.Font("Comic Sans MS", 1, 15)); // NOI18N
+        totalScoreLabel.setForeground(new java.awt.Color(255, 255, 0));
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -267,24 +272,25 @@ public class MathGameUI extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(imageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(imageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(correctLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(correctCountLabel))
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(incorrectLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(incorrectCountLabel)))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                            .addComponent(incorrectLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(incorrectCountLabel)
+                                .addGroup(jPanel5Layout.createSequentialGroup()
+                                    .addComponent(correctLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(correctCountLabel))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(totalScoreLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(32, 32, 32)
+                .addComponent(totalScoreLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(correctLabel)
                     .addComponent(correctCountLabel))
@@ -293,7 +299,7 @@ public class MathGameUI extends javax.swing.JFrame {
                     .addComponent(incorrectLabel)
                     .addComponent(incorrectCountLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(imageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(imageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel5);
@@ -301,6 +307,7 @@ public class MathGameUI extends javax.swing.JFrame {
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageDisplay/Math Game 3.jpg"))); // NOI18N
         background.setOpaque(true);
+        background.setPreferredSize(new java.awt.Dimension(700, 340));
         getContentPane().add(background);
         background.setBounds(0, -10, 710, 360);
 
@@ -346,7 +353,7 @@ public class MathGameUI extends javax.swing.JFrame {
                 //display correct answer after 2 failed attempts.
                 feedbackLabel.setText("You are incorrect.");
                 feedbackLabel2.setText("The Correct answer is " + answer);
-                mathGame.soundClip(buzzer); //play sound clip
+                mathGame.soundClip(boing); //play sound clip
                 questionLabel.setText(""); //clear question label
                 incorrect++; //increment variable
                 incorrectCountLabel.setText("" + incorrect); //display # of questions answered incorrectly
@@ -355,6 +362,11 @@ public class MathGameUI extends javax.swing.JFrame {
         else{
             rightAnswer(); //call rightAnswer method
         }
+        
+        if(totalAttempts == 10){
+            percentCorrect();
+        }
+        
     }//GEN-LAST:event_userInputTextFieldActionPerformed
     
     //method to take actions when answer is correct
@@ -369,13 +381,9 @@ public class MathGameUI extends javax.swing.JFrame {
     
     private void percentCorrect(){
         
-        int totalAttempts = correct + incorrect;
-        int percentage;
-        
-        if(totalAttempts == 10){
-            percentage = (correct/totalAttempts)*100;
-        }
-        
+        percentage = (correct/totalAttempts)*100;
+        totalScoreLabel.setText("Final Score = " + percentage + "%");
+         
     }
     
     private void multiplyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_multiplyButtonActionPerformed
@@ -547,6 +555,7 @@ public class MathGameUI extends javax.swing.JFrame {
     public javax.swing.JLabel questionLabel;
     private javax.swing.JButton randomButton;
     private javax.swing.JButton subtractButton;
+    private javax.swing.JLabel totalScoreLabel;
     private javax.swing.JTextField userInputTextField;
     // End of variables declaration//GEN-END:variables
 }
