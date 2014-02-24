@@ -30,8 +30,7 @@ public class MathGameUI extends javax.swing.JFrame {
     MathGame mathGame = new MathGame();
     
     //declare/instantiate field variables
-    private int answer, guess, attempt = 0, correct = 0, incorrect = 0, percentage;
-    private int totalAttempts;
+    private int answer, guess, attempt = 0, correct = 0, incorrect = 0, totalAttempts, percentage;
     
     private final Random rand = new Random(); //create new random number generator
     
@@ -384,12 +383,12 @@ public class MathGameUI extends javax.swing.JFrame {
     //method to calculate score percentage
     private void percentCorrect(){
         
-        percentage = correct * 10;
-        totalScoreLabel.setText("Final Score = " + percentage + "%"); 
-        correct = 0;
-        incorrect = 0;
-        correctCountLabel.setText("");
-        incorrectCountLabel.setText("");
+        percentage = correct * 10; //calculate percentage
+        totalScoreLabel.setText("Final Score = " + percentage + "%"); //display final score percentage
+        correct = 0; //reset counter
+        incorrect = 0; //reset counter
+        correctCountLabel.setText(""); //clear label
+        incorrectCountLabel.setText(""); //clear label
     }
     
     private void multiplyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_multiplyButtonActionPerformed
