@@ -26,19 +26,19 @@ import java.io.*;
 
 public class MathGameUI extends javax.swing.JFrame {
     
-    MathGame mathGame = new MathGame(); //create MathGame object
-    
-    Random rand = new Random(); //create new random number generator
+    //create MathGame object
+    MathGame mathGame = new MathGame();
     
     //declare field variables
-    int answer, guess;
-    //int attempt; 
+    private int answer, guess; 
+    
+    private final Random rand = new Random(); //create new random number generator
     
     //create sound files
-    File cheer = new File("KidsCheer.wav");
-    File buzzer = new File("buzzer.wav");
-    File boing = new File("boing.wav");
-    //File applause = new File("applause.wav"); //if applause file is used
+    private final File cheer = new File("KidsCheer.wav");
+    private final File buzzer = new File("buzzer.wav");
+    private final File boing = new File("boing.wav");
+    //private final File applause = new File("applause.wav"); //if applause file is used
     
     
     /**
@@ -310,8 +310,6 @@ public class MathGameUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-        
-        //attempt = 1;
         
         //create 2 random integers, then pass them through the addition method
         answer = mathGame.addition((1 + rand.nextInt(9)),(1 + rand.nextInt(9)));

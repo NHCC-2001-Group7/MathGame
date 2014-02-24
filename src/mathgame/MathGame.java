@@ -46,11 +46,10 @@ import java.io.*;
 
 public class MathGame {
     
-    Random rand = new Random(); //create new random number generator
-    
-    
     //declare field variables
-    int num1, num2;
+    private int num1, num2;
+    
+    private final Random rand = new Random(); //create new random number generator
     
     
     //constructor
