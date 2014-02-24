@@ -40,8 +40,9 @@ public class MathGameUI extends javax.swing.JFrame {
     
     //String applause = new String("applause.wav");
     //File applause = new File(getClass().getResource("/Audio/applause.wav"));
-    File applause = new File("applause.wav");
+    File cheer = new File("KidCheer.wav");
     File buzzer = new File("buzzer.wav");
+    //File boing = new File("Audio/boing.wav");
     File boing = new File("boing.wav");
     
     //public Clip sound = soundClip("/applause.wav");
@@ -382,7 +383,7 @@ public class MathGameUI extends javax.swing.JFrame {
         }
         else{ //user guessed correctly
             feedbackLabel.setText(mathGame.correctAnswer()); //call method to pick random correct answer phrase
-            mathGame.soundClip(applause); //play sound clip
+            mathGame.soundClip(cheer); //play sound clip
         }
     }//GEN-LAST:event_userInputTextFieldActionPerformed
 
