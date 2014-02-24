@@ -326,60 +326,54 @@ public class MathGameUI extends javax.swing.JFrame {
     private void userInputTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userInputTextFieldActionPerformed
         
         //boolean attempt = true; //counter
+        //int attempt = 0;
         
         guess = Integer.parseInt(userInputTextField.getText()); //read string input from user, convert to integer and assign to variable
         userInputTextField.selectAll(); //highlights TextField
         
         //if user's guess is incorrect
         if(guess != answer){
-            boolean attempt = true; //counter
-            if(attempt = true){
+            
+            for(int attempt=1; attempt < 2; attempt ++){
                 //set labels
                 feedbackLabel.setText(mathGame.incorrectAnswer()); //call method to pick random incorrect answer phrase
                 feedbackLabel2.setText("Please try again! "); //prompt user to guess again
                 mathGame.soundClip(boing); //play sound clip
-                incorrect++;
-                incorrectCountLabel.setText("" + incorrect);
+                incorrect++; //increment variable
+                incorrectCountLabel.setText("" + incorrect); //display # of questions answered incorrectly
                 
                 guess = Integer.parseInt(userInputTextField.getText()); //read string input from user, convert to integer and assign to variable
                 userInputTextField.selectAll(); //highlights TextField
-                
-                attempt = false; //increment counter 
-            }
-            else if (attempt = false){
-                //display correct answer after 2 failed attempts.
-                feedbackLabel.setText("You are incorrect.");
-                feedbackLabel2.setText("The Correct answer is " + answer);
-                mathGame.soundClip(buzzer); //play sound clip
-                questionLabel.setText(""); //clear question label
-                incorrect++;
-                incorrectCountLabel.setText("" + incorrect); 
             }
             
-            //while(attempt < 2){ //loop 2 times to give the user 2 chances to answer correctly
-                
-                //set labels
-                //feedbackLabel.setText(mathGame.incorrectAnswer()); //call method to pick random incorrect answer phrase
-                //feedbackLabel2.setText("Please try again! "); //prompt user to guess again
-                //mathGame.soundClip(boing); //play sound clip
-                
-                //guess = Integer.parseInt(userInputTextField.getText()); //read string input from user, convert to integer and assign to variable
-                //userInputTextField.selectAll(); //highlights TextField
-                
-               // attempt++; //increment counter
-            //}
+//            while(attempt < 2){ //loop 2 times to give the user 2 chances to answer correctly
+//                
+//                //set labels
+//                feedbackLabel.setText(mathGame.incorrectAnswer()); //call method to pick random incorrect answer phrase
+//                feedbackLabel2.setText("Please try again! "); //prompt user to guess again
+//                mathGame.soundClip(boing); //play sound clip
+//                incorrect++; //increment variable
+//                incorrectCountLabel.setText("" + incorrect); //display # of questions answered incorrectly
+//                
+//                guess = Integer.parseInt(userInputTextField.getText()); //read string input from user, convert to integer and assign to variable
+//                userInputTextField.selectAll(); //highlights TextField
+//                
+//                attempt++; //increment counter
+//            }
             //display correct answer after 2 failed attempts.
-            //feedbackLabel.setText("You are incorrect.");
-            //feedbackLabel2.setText("The Correct answer is " + answer);
-            //mathGame.soundClip(buzzer); //play sound clip
-            //questionLabel.setText(""); //clear question label
+            feedbackLabel.setText("You are incorrect.");
+            feedbackLabel2.setText("The Correct answer is " + answer);
+            mathGame.soundClip(buzzer); //play sound clip
+            questionLabel.setText(""); //clear question label
+            incorrect++; //increment variable
+            incorrectCountLabel.setText("" + incorrect); //display # of questions answered incorrectly
         }
         else{ //user guessed correctly
             feedbackLabel.setText(mathGame.correctAnswer()); //call method to pick random correct answer phrase
             mathGame.soundClip(cheer); //play sound clip
-            correct++;
-            correctCountLabel.setText("" + correct);
-            feedbackLabel2.setText("");
+            correct++; //increment variable
+            correctCountLabel.setText("" + correct); //display # of questions answered correctly
+            feedbackLabel2.setText(""); //clear feedbackLabel2
         }
     }//GEN-LAST:event_userInputTextFieldActionPerformed
 
