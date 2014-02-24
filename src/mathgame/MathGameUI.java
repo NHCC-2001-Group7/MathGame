@@ -40,7 +40,7 @@ public class MathGameUI extends javax.swing.JFrame {
     
     //String applause = new String("applause.wav");
     //File applause = new File(getClass().getResource("/Audio/applause.wav"));
-    File cheer = new File("KidCheer.wav");
+    File cheer = new File("KidsCheer.wav");
     //File applause = new File("applause.wav");
     File buzzer = new File("buzzer.wav");
     //File boing = new File("Audio/boing.wav");
