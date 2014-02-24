@@ -92,14 +92,8 @@ public class MathGame {
             Clip clip = AudioSystem.getClip(); //get a sound clip resource
             clip.open(audio); //open audio clip and load samples from the audio input stream
             clip.start(); //plays sound clip
-        }catch(UnsupportedAudioFileException uae){
+        }catch(  UnsupportedAudioFileException | IOException | LineUnavailableException uae){
             System.out.println(uae);
-        }
-        catch(IOException ioe){
-            System.out.println(ioe);
-        }
-        catch(LineUnavailableException lua){
-            System.out.println(lua);
         }  
     }
     

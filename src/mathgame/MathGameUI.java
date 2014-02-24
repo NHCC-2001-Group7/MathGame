@@ -20,8 +20,6 @@ package mathgame;
 
 
 //import classes
-import java.awt.image.ImageObserver;
-import javax.swing.JFrame;
 import java.util.Random;
 import java.io.*;
 
@@ -37,16 +35,10 @@ public class MathGameUI extends javax.swing.JFrame {
     //int attempt; 
     
     //create sound files
-    
-    //String applause = new String("applause.wav");
-    //File applause = new File(getClass().getResource("/Audio/applause.wav"));
     File cheer = new File("KidsCheer.wav");
-    //File applause = new File("applause.wav");
     File buzzer = new File("buzzer.wav");
-    //File boing = new File("Audio/boing.wav");
     File boing = new File("boing.wav");
-    
-    //public Clip sound = soundClip("/applause.wav");
+    //File applause = new File("applause.wav"); //if applause file is used
     
     
     /**
