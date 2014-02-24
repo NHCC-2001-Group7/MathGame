@@ -304,7 +304,6 @@
               <Color blue="d6" green="d5" red="4f" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="FeedBack"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
           </Properties>
         </Component>
@@ -327,7 +326,6 @@
               <Color blue="d6" green="d5" red="4f" type="rgb"/>
             </Property>
             <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="text" type="java.lang.String" value="FeedBack2"/>
             <Property name="horizontalTextPosition" type="int" value="0"/>
           </Properties>
         </Component>

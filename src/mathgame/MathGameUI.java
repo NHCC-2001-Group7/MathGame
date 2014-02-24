@@ -33,7 +33,8 @@ public class MathGameUI extends javax.swing.JFrame {
     Random rand = new Random(); //create new random number generator
     
     //declare field variables
-    int answer, guess, attempt; 
+    int answer, guess;
+    //int attempt; 
     
     //create sound files
     File applause = new File("applause1.wav");
@@ -204,7 +205,6 @@ public class MathGameUI extends javax.swing.JFrame {
         feedbackLabel.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         feedbackLabel.setForeground(new java.awt.Color(79, 213, 214));
         feedbackLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        feedbackLabel.setText("FeedBack");
         feedbackLabel.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         userInputTextField.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
@@ -217,7 +217,6 @@ public class MathGameUI extends javax.swing.JFrame {
         feedbackLabel2.setFont(new java.awt.Font("Comic Sans MS", 1, 12)); // NOI18N
         feedbackLabel2.setForeground(new java.awt.Color(79, 213, 214));
         feedbackLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        feedbackLabel2.setText("FeedBack2");
         feedbackLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -313,7 +312,7 @@ public class MathGameUI extends javax.swing.JFrame {
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
         
-        attempt = 1; //counter
+        //attempt = 1;
         
         //create 2 random integers, then pass them through the addition method
         answer = mathGame.addition((1 + rand.nextInt(9)),(1 + rand.nextInt(9)));
@@ -331,15 +330,15 @@ public class MathGameUI extends javax.swing.JFrame {
 
     private void userInputTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userInputTextFieldActionPerformed
         
-        //attempt = 1; //counter
+        //boolean attempt = true; //counter
         
         guess = Integer.parseInt(userInputTextField.getText()); //read string input from user, convert to integer and assign to variable
         userInputTextField.selectAll(); //highlights TextField
         
         //if user's guess is incorrect
         if(guess != answer){
-            while(attempt < 2){ //loop 2 times to give the user 2 chances to answer correctly
-                
+            boolean attempt = true; //counter
+            if(attempt){
                 //set labels
                 feedbackLabel.setText(mathGame.incorrectAnswer()); //call method to pick random incorrect answer phrase
                 feedbackLabel2.setText("Please try again! "); //prompt user to guess again
@@ -348,13 +347,33 @@ public class MathGameUI extends javax.swing.JFrame {
                 guess = Integer.parseInt(userInputTextField.getText()); //read string input from user, convert to integer and assign to variable
                 userInputTextField.selectAll(); //highlights TextField
                 
-                attempt++; //increment counter
+                attempt = false; //increment counter 
             }
+            else if (attempt = false){
+                //display correct answer after 2 failed attempts.
+                feedbackLabel.setText("You are incorrect.");
+                feedbackLabel2.setText("The Correct answer is " + answer);
+                mathGame.soundClip(buzzer); //play sound clip
+                questionLabel.setText(""); //clear question label
+            }
+            
+            //while(attempt < 2){ //loop 2 times to give the user 2 chances to answer correctly
+                
+                //set labels
+                //feedbackLabel.setText(mathGame.incorrectAnswer()); //call method to pick random incorrect answer phrase
+                //feedbackLabel2.setText("Please try again! "); //prompt user to guess again
+                //mathGame.soundClip(boing); //play sound clip
+                
+                //guess = Integer.parseInt(userInputTextField.getText()); //read string input from user, convert to integer and assign to variable
+                //userInputTextField.selectAll(); //highlights TextField
+                
+               // attempt++; //increment counter
+            //}
             //display correct answer after 2 failed attempts.
-            feedbackLabel.setText("You are incorrect.");
-            feedbackLabel2.setText("The Correct answer is " + answer);
-            mathGame.soundClip(buzzer); //play sound clip
-            questionLabel.setText(""); //clear question label
+            //feedbackLabel.setText("You are incorrect.");
+            //feedbackLabel2.setText("The Correct answer is " + answer);
+            //mathGame.soundClip(buzzer); //play sound clip
+            //questionLabel.setText(""); //clear question label
         }
         else{ //user guessed correctly
             feedbackLabel.setText(mathGame.correctAnswer()); //call method to pick random correct answer phrase
