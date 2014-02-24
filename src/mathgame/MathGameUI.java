@@ -30,8 +30,7 @@ public class MathGameUI extends javax.swing.JFrame {
     MathGame mathGame = new MathGame();
     
     //declare/instantiate field variables
-    private int answer, guess, attempt = 0, correct = 0, incorrect = 0, percentage;
-    private int totalAttempts;
+    private int answer, guess, attempt = 0, correct = 0, incorrect = 0, totalAttempts, percentage;
     
     private final Random rand = new Random(); //create new random number generator
     
