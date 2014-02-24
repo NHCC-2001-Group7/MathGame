@@ -311,7 +311,7 @@ public class MathGameUI extends javax.swing.JFrame {
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
         
-        //create 2 random integers, then pass them through the addition method
+        //create 2 random integers(from 1 to 9), then pass them through the addition method
         answer = mathGame.addition((1 + rand.nextInt(9)),(1 + rand.nextInt(9)));
         
         //set label to ask an addition question
@@ -380,7 +380,7 @@ public class MathGameUI extends javax.swing.JFrame {
 
     private void multiplyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_multiplyButtonActionPerformed
         
-        //create 2 random integers, then pass them through the multiply method
+        //create 2 random integers(from 1 to 9), then pass them through the multiply method
         answer = mathGame.multiply((1 + rand.nextInt(9)),(1 + rand.nextInt(9)));
         
         //set label to ask a multiplication question
@@ -396,7 +396,7 @@ public class MathGameUI extends javax.swing.JFrame {
 
     private void subtractButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subtractButtonActionPerformed
         
-        //create 2 random integers, then pass them through the subtraction method
+        //create 2 random integers(from 1 to 9), then pass them through the subtraction method
         answer = mathGame.subtraction((1 + rand.nextInt(9)),(1 + rand.nextInt(9)));
         
         //If less than 0, ensure it's a positive answer
@@ -418,7 +418,7 @@ public class MathGameUI extends javax.swing.JFrame {
 
     private void divideButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_divideButtonActionPerformed
         
-        //create 2 random integers, then pass them through the division method
+        //create 2 random integers(from 1 to 9), then pass them through the division method
         answer = mathGame.division((1 + rand.nextInt(9)),(1 + rand.nextInt(9)));
         
         //set label to ask a division question
@@ -434,21 +434,21 @@ public class MathGameUI extends javax.swing.JFrame {
 
     private void randomButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_randomButtonActionPerformed
         
-        //create random number
+        //create random number(from 1 to 4)
         int random = 1 + rand.nextInt(4);
         
         //randomly generate math questions
         switch(random)
         {
         case 1:
-            //create 2 random integers, then pass them through the addition method
+            //create 2 random integers(from 1 to 9), then pass them through the addition method
             answer = mathGame.addition((1 + rand.nextInt(9)),(1 + rand.nextInt(9)));
             
             //set label to ask an addition question
             questionLabel.setText("What is " + mathGame.getNum1() + " plus " + mathGame.getNum2() + "? ");
             break;
         case 2:
-            //create 2 random integers, then pass them through the subtraction method
+            //create 2 random integers(from 1 to 9), then pass them through the subtraction method
             answer = mathGame.subtraction((1 + rand.nextInt(9)),(1 + rand.nextInt(9)));
         
             //If less than 0, ensure it's a positive answer
@@ -461,14 +461,14 @@ public class MathGameUI extends javax.swing.JFrame {
             }
             break;
         case 3:
-            //create 2 random integers, then pass them through the multiply method
+            //create 2 random integers(from 1 to 9), then pass them through the multiply method
             answer = mathGame.multiply((1 + rand.nextInt(9)),(1 + rand.nextInt(9)));
         
             //set label to ask a multiplication question
             questionLabel.setText("What is " + mathGame.getNum1() + " times " + mathGame.getNum2() + "? ");
             break;
         case 4:
-            //create 2 random integers, then pass them through the division method
+            //create 2 random integers(from 1 to 9), then pass them through the division method
             answer = mathGame.division((1 + rand.nextInt(9)),(1 + rand.nextInt(9)));
         
             //set label to ask a division question

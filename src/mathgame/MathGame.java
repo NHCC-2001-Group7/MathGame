@@ -154,7 +154,7 @@ public class MathGame {
 
 	//initialize local variables
         String rightAnswer = "";
-	int answer = 1 + rand.nextInt(4); //create random number
+	int answer = 1 + rand.nextInt(4); //create random number(from 1 to 4)
 
 	//randomly generate response to user's answer
 	switch(answer)
@@ -181,7 +181,7 @@ public class MathGame {
 
 	//initialize local variables
         String wrongAnswer = "";
-	int answer = 1 + rand.nextInt(4); //create random number
+	int answer = 1 + rand.nextInt(4); //create random number(from 1 to 9)
 
 	//randomly generate response to user's answer
 	switch(answer)
