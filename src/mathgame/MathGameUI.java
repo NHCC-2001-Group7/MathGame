@@ -81,7 +81,8 @@ public class MathGameUI extends javax.swing.JFrame {
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(700, 368));
+        setMaximumSize(new java.awt.Dimension(710, 375));
+        setMinimumSize(new java.awt.Dimension(710, 375));
         getContentPane().setLayout(null);
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
@@ -317,6 +318,7 @@ public class MathGameUI extends javax.swing.JFrame {
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
         
         attempt = 0; //reset attempt to 0
+        totalScoreLabel.setText(""); //clear label
         
         //create 2 random integers(from 1 to 9), then pass them through the addition method
         answer = mathGame.addition((1 + rand.nextInt(9)),(1 + rand.nextInt(9)));
@@ -334,6 +336,7 @@ public class MathGameUI extends javax.swing.JFrame {
 
     private void userInputTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userInputTextFieldActionPerformed
         
+        //calculate total attempts
         totalAttempts = correct + incorrect;
         
         guess = Integer.parseInt(userInputTextField.getText()); //read string input from user, convert to integer and assign to variable
@@ -341,7 +344,7 @@ public class MathGameUI extends javax.swing.JFrame {
         
         //if user's guess is incorrect
         if(guess != answer){
-            if(attempt != 1){
+            if(attempt != 1){ //if first incorrect answer
                 //set labels
                 feedbackLabel.setText(mathGame.incorrectAnswer()); //call method to pick random incorrect answer phrase
                 feedbackLabel2.setText("Please try again! "); //prompt user to guess again
@@ -349,9 +352,9 @@ public class MathGameUI extends javax.swing.JFrame {
                 
                 guess = Integer.parseInt(userInputTextField.getText()); //read string input from user, convert to integer and assign to variable
                 userInputTextField.selectAll(); //highlights TextField
-                attempt++;
+                attempt++; //increment variable
             }
-            else{
+            else{ //if second incorrect answer
                 //display correct answer after 2 failed attempts.
                 feedbackLabel.setText("You are incorrect.");
                 feedbackLabel2.setText("The Correct answer is " + answer);
@@ -359,24 +362,16 @@ public class MathGameUI extends javax.swing.JFrame {
                 questionLabel.setText(""); //clear question label
                 incorrect++; //increment variable
                 incorrectCountLabel.setText("" + incorrect); //display # of questions answered incorrectly
-//                 
-//                    if(totalAttempts == 9){
-//                        percentCorrect();
-//                    }
             }
         }
-        else{
+        else{ //if user enters correct answer
             rightAnswer(); //call rightAnswer method
-             
-//            if(totalAttempts == 9){
-//                percentCorrect();
-//            }
         }
         
+        //if user answers 10 questions
         if(totalAttempts == 9){
-            percentCorrect();
+            percentCorrect(); //call method to calculate percentage
         }
-        
     }//GEN-LAST:event_userInputTextFieldActionPerformed
     
     //method to take actions when answer is correct
@@ -392,13 +387,18 @@ public class MathGameUI extends javax.swing.JFrame {
     //method to calculate score percentage
     private void percentCorrect(){
         
-        percentage = (correct/totalAttempts)*100;
+        percentage = correct * 10;
         totalScoreLabel.setText("Final Score = " + percentage + "%"); 
+        correct = 0;
+        incorrect = 0;
+        correctCountLabel.setText("");
+        incorrectCountLabel.setText("");
     }
     
     private void multiplyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_multiplyButtonActionPerformed
         
         attempt = 0; //reset attempt to 0
+        totalScoreLabel.setText(""); //clear label
         
         //create 2 random integers(from 1 to 9), then pass them through the multiply method
         answer = mathGame.multiply((1 + rand.nextInt(9)),(1 + rand.nextInt(9)));
@@ -417,6 +417,7 @@ public class MathGameUI extends javax.swing.JFrame {
     private void subtractButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subtractButtonActionPerformed
         
         attempt = 0; //reset attempt to 0
+        totalScoreLabel.setText(""); //clear label
         
         //create 2 random integers(from 1 to 9), then pass them through the subtraction method
         answer = mathGame.subtraction((1 + rand.nextInt(9)),(1 + rand.nextInt(9)));
@@ -441,6 +442,7 @@ public class MathGameUI extends javax.swing.JFrame {
     private void divideButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_divideButtonActionPerformed
         
         attempt = 0; //reset attempt to 0
+        totalScoreLabel.setText(""); //clear label
         
         //create 2 random integers(from 1 to 9), then pass them through the division method
         answer = mathGame.division((1 + rand.nextInt(9)),(1 + rand.nextInt(9)));
@@ -459,6 +461,7 @@ public class MathGameUI extends javax.swing.JFrame {
     private void randomButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_randomButtonActionPerformed
         
         attempt = 0; //reset attempt to 0
+        totalScoreLabel.setText(""); //clear label
         
         //create random number(from 1 to 4)
         int random = 1 + rand.nextInt(4);
