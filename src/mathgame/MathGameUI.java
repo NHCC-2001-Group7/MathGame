@@ -31,7 +31,7 @@ public class MathGameUI extends javax.swing.JFrame {
     
     //declare/instantiate field variables
     private int answer, guess, attempt = 0, correct = 0, incorrect = 0, percentage;
-    private final int totalAttempts = correct + incorrect;
+    private int totalAttempts = correct + incorrect;
     
     private final Random rand = new Random(); //create new random number generator
     
@@ -357,15 +357,23 @@ public class MathGameUI extends javax.swing.JFrame {
                 questionLabel.setText(""); //clear question label
                 incorrect++; //increment variable
                 incorrectCountLabel.setText("" + incorrect); //display # of questions answered incorrectly
+                 
+                    if(totalAttempts == 10){
+                        percentCorrect();
+                    }
             }
         }
         else{
             rightAnswer(); //call rightAnswer method
+             
+            if(totalAttempts == 10){
+                percentCorrect();
+            }
         }
         
-        if(totalAttempts == 10){
-            percentCorrect();
-        }
+//        if(totalAttempts == 10){
+//            percentCorrect();
+//        }
         
     }//GEN-LAST:event_userInputTextFieldActionPerformed
     
@@ -382,8 +390,7 @@ public class MathGameUI extends javax.swing.JFrame {
     private void percentCorrect(){
         
         percentage = (correct/totalAttempts)*100;
-        totalScoreLabel.setText("Final Score = " + percentage + "%");
-         
+        totalScoreLabel.setText("Final Score = " + percentage + "%"); 
     }
     
     private void multiplyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_multiplyButtonActionPerformed
