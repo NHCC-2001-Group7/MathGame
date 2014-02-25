@@ -328,6 +328,8 @@ public class MathGameUI extends javax.swing.JFrame {
         
         userInputTextField.requestFocus(); //focus back on the textField after clicking button
         userInputTextField.selectAll(); //highlights TextField
+        userInputTextField.setText(""); //Clear Text Field
+        userInputTextField.setEditable(true); //Text in TextField can be edited
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void userInputTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userInputTextFieldActionPerformed
@@ -358,6 +360,8 @@ public class MathGameUI extends javax.swing.JFrame {
                 questionLabel.setText(""); //clear question label
                 incorrect++; //increment variable
                 incorrectCountLabel.setText("" + incorrect); //display # of questions answered incorrectly
+                userInputTextField.setText("Select Another Problem"); //Stop user from inputting another answer.
+                userInputTextField.setEditable(false); //Text in TextField cannot be deleted
             }
         }
         else{ //if user enters correct answer
@@ -378,6 +382,8 @@ public class MathGameUI extends javax.swing.JFrame {
         correct++; //increment variable
         correctCountLabel.setText("" + correct); //display # of questions answered correctly
         feedbackLabel2.setText(""); //clear feedbackLabel2
+        userInputTextField.setText("Pick A Problem"); //Clear TextField for user to solve a new problem
+        userInputTextField.setEditable(false); //Text in TextField cannot be deleted
     }
     
     //method to calculate score percentage
@@ -408,6 +414,8 @@ public class MathGameUI extends javax.swing.JFrame {
         
         userInputTextField.requestFocus(); //focus back on the textField after clicking button
         userInputTextField.selectAll(); //highlights TextField
+        userInputTextField.setText(""); //Clear TextField for user to solve a new problem
+        userInputTextField.setEditable(true); //Text in TextField can be edited
     }//GEN-LAST:event_multiplyButtonActionPerformed
 
     private void subtractButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subtractButtonActionPerformed
@@ -433,6 +441,8 @@ public class MathGameUI extends javax.swing.JFrame {
         
         userInputTextField.requestFocus(); //focus back on the textField after clicking button
         userInputTextField.selectAll(); //highlights TextField
+        userInputTextField.setText(""); //Clear TextField for user to solve a new problem
+        userInputTextField.setEditable(true); //Text in TextField can be edited
     }//GEN-LAST:event_subtractButtonActionPerformed
 
     private void divideButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_divideButtonActionPerformed
@@ -452,6 +462,8 @@ public class MathGameUI extends javax.swing.JFrame {
         
         userInputTextField.requestFocus(); //focus back on the textField after clicking button
         userInputTextField.selectAll(); //highlights TextField
+        userInputTextField.setText(""); //Clear TextField for user to solve a new problem
+        userInputTextField.setEditable(true); //Text in TextField can be edited
     }//GEN-LAST:event_divideButtonActionPerformed
 
     private void randomButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_randomButtonActionPerformed
@@ -507,6 +519,8 @@ public class MathGameUI extends javax.swing.JFrame {
         
         userInputTextField.requestFocus(); //focus back on the textField after clicking button
         userInputTextField.selectAll(); //highlights TextField
+        userInputTextField.setText(""); //Clear TextField for user to solve a new problem
+        userInputTextField.setEditable(true); //Text in TextField can be edited
     }//GEN-LAST:event_randomButtonActionPerformed
 
     /**
