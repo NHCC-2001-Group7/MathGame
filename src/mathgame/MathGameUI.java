@@ -362,16 +362,22 @@ public class MathGameUI extends javax.swing.JFrame {
                 incorrectCountLabel.setText("" + incorrect); //display # of questions answered incorrectly
                 userInputTextField.setText("Select Another Problem"); //Stop user from inputting another answer.
                 userInputTextField.setEditable(false); //Text in TextField cannot be deleted
+                
+                //if user answers 10 questions
+                if(totalAttempts == 9){
+                percentCorrect(); //call method to calculate percentage
+                }
             }
         }
         else{ //if user enters correct answer
             rightAnswer(); //call rightAnswer method
+            //if user answers 10 questions
+        
+            if(totalAttempts == 9){
+            percentCorrect(); //call method to calculate percentage
+            }
         }
         
-        //if user answers 10 questions
-        if(totalAttempts == 9){
-            percentCorrect(); //call method to calculate percentage
-        }
     }//GEN-LAST:event_userInputTextFieldActionPerformed
     
     //method to take actions when answer is correct
