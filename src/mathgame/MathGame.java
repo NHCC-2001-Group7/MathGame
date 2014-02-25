@@ -11,7 +11,7 @@ package mathgame;
  * @Class: CSCI 2001-51
  * @Due Date: 02/25/14
  * 
- * @Version 1.00
+ * @Version final
  * 
  * Objective: Write a program that will help an elementary school student learn arithmetic. (Exercises 6.35, 6.36, 6.39)
  *  -The program asks the student basic addition, subtraction, multiplication and division problems

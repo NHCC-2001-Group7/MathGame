@@ -37,10 +37,8 @@ public class MathGameUI extends javax.swing.JFrame {
     //create sound files
     private final File cheer = new File("KidsCheer.wav");
     private final File boing = new File("boing.wav");
-    private final File losinghorns = new File("losinghorns.wav");
-    private final File finalscoreping = new File("finalscoreping.wav");
-    //private final File buzzer = new File("buzzer.wav"); //if buzzer file is used
-    //private final File applause = new File("applause.wav"); //if applause file is used
+    private final File losingHorns = new File("losinghorns.wav");
+    private final File finalScorePing = new File("finalscoreping.wav");
     
     
     /**
@@ -360,7 +358,7 @@ public class MathGameUI extends javax.swing.JFrame {
                 //display correct answer after 2 failed attempts.
                 feedbackLabel.setText("You are incorrect.");
                 feedbackLabel2.setText("The Correct answer is " + answer);
-                mathGame.soundClip(losinghorns);//play sound clip
+                mathGame.soundClip(losingHorns);//play sound clip
                 questionLabel.setText(""); //clear question label
                 incorrect++; //increment variable
                 incorrectCountLabel.setText("" + incorrect); //display # of questions answered incorrectly
@@ -401,7 +399,7 @@ public class MathGameUI extends javax.swing.JFrame {
         
         percentage = correct * 10; //calculate percentage
         totalScoreLabel.setText("Final Score = " + percentage + "%"); //display final score percentage
-        mathGame.soundClip(finalscoreping); //play sound clip
+        mathGame.soundClip(finalScorePing); //play sound clip
         correct = 0; //reset counter
         incorrect = 0; //reset counter
         correctCountLabel.setText(""); //clear label
