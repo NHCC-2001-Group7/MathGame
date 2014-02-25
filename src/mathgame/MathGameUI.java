@@ -305,6 +305,8 @@ public class MathGameUI extends javax.swing.JFrame {
         jPanel5.setBounds(460, 110, 210, 210);
 
         background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageDisplay/Math Game 4.jpg"))); // NOI18N
+        background.setMaximumSize(new java.awt.Dimension(694, 330));
+        background.setMinimumSize(new java.awt.Dimension(694, 330));
         background.setOpaque(true);
         background.setPreferredSize(new java.awt.Dimension(700, 340));
         getContentPane().add(background);
