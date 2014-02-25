@@ -46,7 +46,8 @@ public class MathGameUI extends javax.swing.JFrame {
      */
     public MathGameUI() {
         initComponents();
-     
+        userInputTextField.setText("Pick A Problem"); //set TextField telling user to select a problem
+        userInputTextField.setEditable(false); //user cannot use TextField until selecting a problem
     }
 
     /**
@@ -80,6 +81,7 @@ public class MathGameUI extends javax.swing.JFrame {
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Elementary Math Game");
         setMaximumSize(new java.awt.Dimension(710, 375));
         setMinimumSize(new java.awt.Dimension(710, 375));
         getContentPane().setLayout(null);
@@ -179,7 +181,6 @@ public class MathGameUI extends javax.swing.JFrame {
         questionLabel.setBackground(new java.awt.Color(255, 255, 255));
         questionLabel.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         questionLabel.setForeground(new java.awt.Color(0, 255, 255));
-        questionLabel.setText("Question Box");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -329,7 +330,7 @@ public class MathGameUI extends javax.swing.JFrame {
         feedbackLabel2.setText("");
         
         userInputTextField.requestFocus(); //focus back on the textField after clicking button
-        userInputTextField.selectAll(); //highlights TextField
+        //userInputTextField.selectAll(); //highlights TextField
         userInputTextField.setText(""); //Clear Text Field
         userInputTextField.setEditable(true); //Text in TextField can be edited
     }//GEN-LAST:event_addButtonActionPerformed
@@ -422,7 +423,7 @@ public class MathGameUI extends javax.swing.JFrame {
         feedbackLabel2.setText("");  
         
         userInputTextField.requestFocus(); //focus back on the textField after clicking button
-        userInputTextField.selectAll(); //highlights TextField
+        //userInputTextField.selectAll(); //highlights TextField
         userInputTextField.setText(""); //Clear TextField for user to solve a new problem
         userInputTextField.setEditable(true); //Text in TextField can be edited
     }//GEN-LAST:event_multiplyButtonActionPerformed
@@ -449,7 +450,7 @@ public class MathGameUI extends javax.swing.JFrame {
         feedbackLabel2.setText("");  
         
         userInputTextField.requestFocus(); //focus back on the textField after clicking button
-        userInputTextField.selectAll(); //highlights TextField
+        //userInputTextField.selectAll(); //highlights TextField
         userInputTextField.setText(""); //Clear TextField for user to solve a new problem
         userInputTextField.setEditable(true); //Text in TextField can be edited
     }//GEN-LAST:event_subtractButtonActionPerformed
@@ -470,7 +471,7 @@ public class MathGameUI extends javax.swing.JFrame {
         feedbackLabel2.setText("");  
         
         userInputTextField.requestFocus(); //focus back on the textField after clicking button
-        userInputTextField.selectAll(); //highlights TextField
+        //userInputTextField.selectAll(); //highlights TextField
         userInputTextField.setText(""); //Clear TextField for user to solve a new problem
         userInputTextField.setEditable(true); //Text in TextField can be edited
     }//GEN-LAST:event_divideButtonActionPerformed
@@ -527,7 +528,7 @@ public class MathGameUI extends javax.swing.JFrame {
         feedbackLabel2.setText("");
         
         userInputTextField.requestFocus(); //focus back on the textField after clicking button
-        userInputTextField.selectAll(); //highlights TextField
+        //userInputTextField.selectAll(); //highlights TextField
         userInputTextField.setText(""); //Clear TextField for user to solve a new problem
         userInputTextField.setEditable(true); //Text in TextField can be edited
     }//GEN-LAST:event_randomButtonActionPerformed
