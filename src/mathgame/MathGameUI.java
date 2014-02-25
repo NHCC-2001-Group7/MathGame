@@ -36,8 +36,9 @@ public class MathGameUI extends javax.swing.JFrame {
     
     //create sound files
     private final File cheer = new File("KidsCheer.wav");
-    private final File buzzer = new File("buzzer.wav");
     private final File boing = new File("boing.wav");
+    private final File losinghorns = new File("losinghorns.wav");
+    //private final File buzzer = new File("buzzer.wav"); //if buzzer file is used
     //private final File applause = new File("applause.wav"); //if applause file is used
     
     
@@ -356,7 +357,7 @@ public class MathGameUI extends javax.swing.JFrame {
                 //display correct answer after 2 failed attempts.
                 feedbackLabel.setText("You are incorrect.");
                 feedbackLabel2.setText("The Correct answer is " + answer);
-                mathGame.soundClip(boing); //play sound clip
+                mathGame.soundClip(losinghorns); //play sound clip
                 questionLabel.setText(""); //clear question label
                 incorrect++; //increment variable
                 incorrectCountLabel.setText("" + incorrect); //display # of questions answered incorrectly
