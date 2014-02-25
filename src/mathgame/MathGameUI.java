@@ -38,6 +38,7 @@ public class MathGameUI extends javax.swing.JFrame {
     private final File cheer = new File("KidsCheer.wav");
     private final File boing = new File("boing.wav");
     private final File losinghorns = new File("losinghorns.wav");
+    private final File finalscoreping = new File("finalscoreping.wav");
     //private final File buzzer = new File("buzzer.wav"); //if buzzer file is used
     //private final File applause = new File("applause.wav"); //if applause file is used
     
@@ -303,7 +304,7 @@ public class MathGameUI extends javax.swing.JFrame {
         getContentPane().add(jPanel5);
         jPanel5.setBounds(460, 110, 210, 210);
 
-        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageDisplay/Math Game 3.jpg"))); // NOI18N
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ImageDisplay/Math Game 4.jpg"))); // NOI18N
         background.setOpaque(true);
         background.setPreferredSize(new java.awt.Dimension(700, 340));
         getContentPane().add(background);
@@ -357,7 +358,7 @@ public class MathGameUI extends javax.swing.JFrame {
                 //display correct answer after 2 failed attempts.
                 feedbackLabel.setText("You are incorrect.");
                 feedbackLabel2.setText("The Correct answer is " + answer);
-                mathGame.soundClip(losinghorns); //play sound clip
+                mathGame.soundClip(losinghorns);//play sound clip
                 questionLabel.setText(""); //clear question label
                 incorrect++; //increment variable
                 incorrectCountLabel.setText("" + incorrect); //display # of questions answered incorrectly
@@ -398,6 +399,7 @@ public class MathGameUI extends javax.swing.JFrame {
         
         percentage = correct * 10; //calculate percentage
         totalScoreLabel.setText("Final Score = " + percentage + "%"); //display final score percentage
+        mathGame.soundClip(finalscoreping); //play sound clip
         correct = 0; //reset counter
         incorrect = 0; //reset counter
         correctCountLabel.setText(""); //clear label
