@@ -7,11 +7,11 @@
 package mathgame;
 
 /**
- * @authors: Mike Plucker, Billy Lam, Xavier Porter
- * @Class: CSCI 2001-51
- * @Due Date: 02/25/14
+ * @author: Mike Plucker, Billy Lam, Xavier Porter
+ * Class: CSCI 2001-51
+ * Due Date: 02/25/14
  * 
- * @Version final
+ * Version final
  * 
  * Objective: Write a program that will help an elementary school student learn arithmetic. (Exercises 6.35, 6.36, 6.39)
  *  -The program asks the student basic addition, subtraction, multiplication and division problems
@@ -51,41 +51,33 @@ public class MathGame {
     
     private final Random rand = new Random(); //create new random number generator
     
-    
     //constructor
     public MathGame (){
-        
-        
+         
     }
-
-    
+ 
     //method to retrieve num1
     public int getNum1() {
         return num1;
     }
-    
     
     //method to set num1
     public void setNum1(int num1) {
 	this.num1 = num1;
     }
     
-    
     //method to retrieve num2
     public int getNum2() {
         return num2;
     }
-    
     
     //method to set num2
     public void setNum2(int num2) {
 	this.num2 = num2;
     }
     
-    
     //method to play sound clip
     public void soundClip(File soundFile){
-        
         try{
             AudioInputStream audio = AudioSystem.getAudioInputStream(soundFile); //open an audio input stream
             Clip clip = AudioSystem.getClip(); //get a sound clip resource
@@ -95,8 +87,7 @@ public class MathGame {
             System.out.println(uae);
         }  
     }
-    
-    
+     
     //method to calculate an addition problem
     public int addition(int num1, int num2){
         
@@ -108,8 +99,7 @@ public class MathGame {
         
         return sum; 
     }
-
-
+    
     //method to calculate a subtraction problem
     public int subtraction(int num1, int num2){
         
@@ -121,7 +111,6 @@ public class MathGame {
         
         return difference;
     }
-
 
     //method to calculate a multiplication problem
     public int multiply (int num1, int num2){
@@ -135,7 +124,6 @@ public class MathGame {
         return product;
     }
     
-
     //method to calculate a division problem
     public int division(int num1, int num2){
         
@@ -147,7 +135,6 @@ public class MathGame {
         
         return quotient;
     }
-
 
     //method to determine response to user's correct answer
     public String correctAnswer(){
@@ -174,7 +161,6 @@ public class MathGame {
 	}
         return rightAnswer;
     }
-
 
     //method to determine response to user's incorrect answer
     public String incorrectAnswer(){

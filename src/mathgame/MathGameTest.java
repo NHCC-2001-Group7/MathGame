@@ -7,11 +7,11 @@
 package mathgame;
 
 /**
- * @authors: Mike Plucker, Billy Lam, Xavier Porter
- * @Class: CSCI 2001-51
- * @Due Date: 02/25/14
+ * @author: Mike Plucker, Billy Lam, Xavier Porter
+ * Class: CSCI 2001-51
+ * Due Date: 02/25/14
  *
- * @Version 1.00
+ * Version final
  * 
  * 
  * Test class for MathGame project

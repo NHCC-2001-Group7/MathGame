@@ -8,11 +8,11 @@ package mathgame;
 
 
 /**
- *@authors: Mike Plucker, Billy Lam, Xavier Porter
- * @Class: CSCI 2001-51
- * @Due Date: 02/25/14
+ * @author: Mike Plucker, Billy Lam, Xavier Porter
+ * Class: CSCI 2001-51
+ * Due Date: 02/25/14
  * 
- * @Version 1.00
+ * Version final
  * 
  * 
  * GUI for MathGame
@@ -315,9 +315,7 @@ public class MathGameUI extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-        
-        attempt = 0; //reset attempt to 0
-        totalScoreLabel.setText(""); //clear label
+        setUpButton(); //call method to set-up button
         
         //create 2 random integers(from 1 to 9), then pass them through the addition method
         answer = mathGame.addition((1 + rand.nextInt(9)),(1 + rand.nextInt(9)));
@@ -325,13 +323,7 @@ public class MathGameUI extends javax.swing.JFrame {
         //set label to ask an addition question
         questionLabel.setText("What is " + mathGame.getNum1() + " plus " + mathGame.getNum2() + "? ");
         
-        //set labels to null when button is pressed (clear feedback labels)
-        feedbackLabel.setText("");
-        feedbackLabel2.setText("");
-        
-        userInputTextField.requestFocus(); //focus back on the textField after clicking button
-        userInputTextField.setText(""); //Clear Text Field
-        userInputTextField.setEditable(true); //Text in TextField can be edited
+        setUpComponents(); //call method to set up components after eath question
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void userInputTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_userInputTextFieldActionPerformed
@@ -344,73 +336,94 @@ public class MathGameUI extends javax.swing.JFrame {
         //if user's guess is incorrect
         if(guess != answer){
             if(attempt != 1){ //if first incorrect answer
-                //set labels
-                feedbackLabel.setText(mathGame.incorrectAnswer()); //call method to pick random incorrect answer phrase
-                feedbackLabel2.setText("Please try again! "); //prompt user to guess again
-                mathGame.soundClip(boing); //play sound clip
-                
-                guess = Integer.parseInt(userInputTextField.getText()); //read string input from user, convert to integer and assign to variable
-                userInputTextField.selectAll(); //highlights TextField
-                attempt++; //increment variable
+                firstWrongAnswer(); //call firstWrongAnswer method
             }
             else{ //if second incorrect answer
-                //display correct answer after 2 failed attempts.
-                feedbackLabel.setText("You are incorrect.");
-                feedbackLabel2.setText("The Correct answer is " + answer);
-                mathGame.soundClip(losingHorns);//play sound clip
-                questionLabel.setText(""); //clear question label
-                incorrect++; //increment variable
-                incorrectCountLabel.setText("" + incorrect); //display # of questions answered incorrectly
-                userInputTextField.setText("Select Another Problem"); //Stop user from inputting another answer.
-                userInputTextField.setEditable(false); //Text in TextField cannot be deleted
-                
-                //if user answers 10 questions
-                if(totalAttempts == 9){
-                percentCorrect(); //call method to calculate percentage
-                }
+                finalWrongAnswer(); //call finalWrongAnswer method            
             }
         }
         else{ //if user enters correct answer
             rightAnswer(); //call rightAnswer method
-            
-            //if user answers 10 questions
-            if(totalAttempts == 9){
-            percentCorrect(); //call method to calculate percentage
-            }
         }
     }//GEN-LAST:event_userInputTextFieldActionPerformed
     
-    //method to take actions when answer is correct
-    private void rightAnswer(){
+    //method to take actions when first wrong answer is input
+    private void firstWrongAnswer(){
         
+        //set labels
+        feedbackLabel.setText(mathGame.incorrectAnswer()); //call method to pick random incorrect answer phrase
+        feedbackLabel2.setText("Please try again! "); //prompt user to guess again
+        mathGame.soundClip(boing); //play sound clip
+                
+        guess = Integer.parseInt(userInputTextField.getText()); //read string input from user, convert to integer and assign to variable
+        userInputTextField.selectAll(); //highlights TextField
+        attempt++; //increment variable
+    }
+    
+    //method to take actions when final wrong answer is input
+    private void finalWrongAnswer(){
+        
+        //display correct answer after 2 failed attempts.
+        feedbackLabel.setText("You are incorrect.");
+        feedbackLabel2.setText("The Correct answer is " + answer);
+        
+        mathGame.soundClip(losingHorns);//play sound clip
+        questionLabel.setText(""); //clear question label
+        incorrect++; //increment variable
+        incorrectCountLabel.setText("" + incorrect); //display # of questions answered incorrectly
+        newProblem(); //call method that directs user to pick a new problem
+        checkAttempts(); //call method that checks if user has answered 10 questions
+    }
+    
+    //method to take actions when answer is correct
+    private void rightAnswer(){       
         feedbackLabel.setText(mathGame.correctAnswer()); //call method to pick random correct answer phrase
         mathGame.soundClip(cheer); //play sound clip
         correct++; //increment variable
         correctCountLabel.setText("" + correct); //display # of questions answered correctly
         feedbackLabel2.setText(""); //clear feedbackLabel2
+        newProblem(); //call method that directs user to pick a new problem
+        checkAttempts(); //call method that checks if user has answered 10 questions
+    }
+    
+    //method to set-up TextField that directs user to pick a new problem
+    private void newProblem(){
         userInputTextField.setText("Pick A New Problem"); //Clear TextField for user to solve a new problem
         userInputTextField.setEditable(false); //Text in TextField cannot be deleted
     }
     
+    //method that checks if user has answered 10 questions
+    private void checkAttempts(){
+        
+        //if user answers 10 questions
+        if(totalAttempts == 9){
+            percentCorrect(); //call method to calculate percentage
+        }
+    }
+    
     //method to calculate score percentage
     private void percentCorrect(){
-        
         percentage = correct * 10; //calculate percentage
         totalScoreLabel.setText("Final Score = " + percentage + "%"); //display final score percentage
         questionLabel.setText("Please Play Again!"); //set label text to tell user game is over
-        feedbackLabel.setText(""); //clear feedbackLabel
-        feedbackLabel2.setText(""); //clear feedbackLabel2
         mathGame.soundClip(finalScorePing); //play sound clip
+        
+        clearFeedbackLabel(); //call method to clear feedback labels       
         correct = 0; //reset counter
         incorrect = 0; //reset counter
         correctCountLabel.setText(""); //clear label
         incorrectCountLabel.setText(""); //clear label
     }
     
+    //method to clear Feedback Labels
+    private void clearFeedbackLabel(){
+        //set labels to null when button is pressed (clear feedback labels)
+        feedbackLabel.setText("");
+        feedbackLabel2.setText("");
+    }
+    
     private void multiplyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_multiplyButtonActionPerformed
-        
-        attempt = 0; //reset attempt to 0
-        totalScoreLabel.setText(""); //clear label
+        setUpButton(); //call method to set-up button
         
         //create 2 random integers(from 1 to 9), then pass them through the multiply method
         answer = mathGame.multiply((1 + rand.nextInt(9)),(1 + rand.nextInt(9)));
@@ -418,19 +431,11 @@ public class MathGameUI extends javax.swing.JFrame {
         //set label to ask a multiplication question
         questionLabel.setText("What is " + mathGame.getNum1() + " times " + mathGame.getNum2() + "? ");
         
-        //set labels to null when button is pressed (clear feedback labels)
-        feedbackLabel.setText("");
-        feedbackLabel2.setText("");  
-        
-        userInputTextField.requestFocus(); //focus back on the textField after clicking button
-        userInputTextField.setText(""); //Clear TextField for user to solve a new problem
-        userInputTextField.setEditable(true); //Text in TextField can be edited
+        setUpComponents(); //call method to set up components after eath question
     }//GEN-LAST:event_multiplyButtonActionPerformed
 
     private void subtractButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_subtractButtonActionPerformed
-        
-        attempt = 0; //reset attempt to 0
-        totalScoreLabel.setText(""); //clear label
+        setUpButton(); //call method to set-up button
         
         //create 2 random integers(from 1 to 9), then pass them through the subtraction method
         answer = mathGame.subtraction((1 + rand.nextInt(9)),(1 + rand.nextInt(9)));
@@ -442,21 +447,13 @@ public class MathGameUI extends javax.swing.JFrame {
         }
         else{
             questionLabel.setText("What is " + mathGame.getNum1() + " minus " + mathGame.getNum2() + "? "); //set label to ask a subtraction question
-        }
+        } 
         
-        //set labels to null when button is pressed (clear feedback labels)
-        feedbackLabel.setText("");
-        feedbackLabel2.setText("");  
-        
-        userInputTextField.requestFocus(); //focus back on the textField after clicking button
-        userInputTextField.setText(""); //Clear TextField for user to solve a new problem
-        userInputTextField.setEditable(true); //Text in TextField can be edited
+        setUpComponents(); //call method to set up components after eath question
     }//GEN-LAST:event_subtractButtonActionPerformed
 
     private void divideButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_divideButtonActionPerformed
-        
-        attempt = 0; //reset attempt to 0
-        totalScoreLabel.setText(""); //clear label
+        setUpButton(); //call method to set-up button
         
         //create 2 random integers(from 1 to 9), then pass them through the division method
         answer = mathGame.division((1 + rand.nextInt(9)),(1 + rand.nextInt(9)));
@@ -464,19 +461,11 @@ public class MathGameUI extends javax.swing.JFrame {
         //set label to ask a division question
         questionLabel.setText("What is " + mathGame.getNum2() + " divided by " + mathGame.getNum1() + "? ");
         
-        //set labels to null when button is pressed (clear feedback labels)
-        feedbackLabel.setText("");
-        feedbackLabel2.setText("");  
-        
-        userInputTextField.requestFocus(); //focus back on the textField after clicking button
-        userInputTextField.setText(""); //Clear TextField for user to solve a new problem
-        userInputTextField.setEditable(true); //Text in TextField can be edited
+        setUpComponents(); //call method to set up components after eath question
     }//GEN-LAST:event_divideButtonActionPerformed
 
     private void randomButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_randomButtonActionPerformed
-        
-        attempt = 0; //reset attempt to 0
-        totalScoreLabel.setText(""); //clear label
+        setUpButton(); //call method to set-up button
         
         //create random number(from 1 to 4)
         int random = 1 + rand.nextInt(4);
@@ -520,15 +509,25 @@ public class MathGameUI extends javax.swing.JFrame {
             break; 
         }
         
-        //set labels to null when button is pressed (clear feedback labels)
-        feedbackLabel.setText("");
-        feedbackLabel2.setText("");
+        setUpComponents(); //call method to set up components after eath question
+    }//GEN-LAST:event_randomButtonActionPerformed
+    
+    //method to set-up button
+    private void setUpButton(){
+        attempt = 0; //reset attempt to 0
+        totalScoreLabel.setText(""); //clear label
+    }
+    
+    //method to set up components after each question
+    private void setUpComponents(){
+        
+        clearFeedbackLabel(); //call method to clear feedback labels
         
         userInputTextField.requestFocus(); //focus back on the textField after clicking button
         userInputTextField.setText(""); //Clear TextField for user to solve a new problem
         userInputTextField.setEditable(true); //Text in TextField can be edited
-    }//GEN-LAST:event_randomButtonActionPerformed
-
+    }
+    
     /**
      * @param args the command line arguments
      */
