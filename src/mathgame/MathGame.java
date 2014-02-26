@@ -52,10 +52,6 @@ public class MathGame {
     
     private final Random rand = new Random(); //create new random number generator
     
-    //constructor
-    public MathGame (){
-         
-    }
  
     //method to retrieve num1
     public int getNum1() {
