@@ -330,7 +330,6 @@ public class MathGameUI extends javax.swing.JFrame {
         feedbackLabel2.setText("");
         
         userInputTextField.requestFocus(); //focus back on the textField after clicking button
-        //userInputTextField.selectAll(); //highlights TextField
         userInputTextField.setText(""); //Clear Text Field
         userInputTextField.setEditable(true); //Text in TextField can be edited
     }//GEN-LAST:event_addButtonActionPerformed
@@ -341,7 +340,6 @@ public class MathGameUI extends javax.swing.JFrame {
         totalAttempts = correct + incorrect;
         
         guess = Integer.parseInt(userInputTextField.getText()); //read string input from user, convert to integer and assign to variable
-        userInputTextField.selectAll(); //highlights TextField
         
         //if user's guess is incorrect
         if(guess != answer){
@@ -374,13 +372,12 @@ public class MathGameUI extends javax.swing.JFrame {
         }
         else{ //if user enters correct answer
             rightAnswer(); //call rightAnswer method
+            
             //if user answers 10 questions
-        
             if(totalAttempts == 9){
             percentCorrect(); //call method to calculate percentage
             }
         }
-        
     }//GEN-LAST:event_userInputTextFieldActionPerformed
     
     //method to take actions when answer is correct
@@ -391,7 +388,7 @@ public class MathGameUI extends javax.swing.JFrame {
         correct++; //increment variable
         correctCountLabel.setText("" + correct); //display # of questions answered correctly
         feedbackLabel2.setText(""); //clear feedbackLabel2
-        userInputTextField.setText("Pick A Problem"); //Clear TextField for user to solve a new problem
+        userInputTextField.setText("Pick A New Problem"); //Clear TextField for user to solve a new problem
         userInputTextField.setEditable(false); //Text in TextField cannot be deleted
     }
     
@@ -400,6 +397,7 @@ public class MathGameUI extends javax.swing.JFrame {
         
         percentage = correct * 10; //calculate percentage
         totalScoreLabel.setText("Final Score = " + percentage + "%"); //display final score percentage
+        questionLabel.setText("Please Play Again!"); //set label text to tell user game is over
         mathGame.soundClip(finalScorePing); //play sound clip
         correct = 0; //reset counter
         incorrect = 0; //reset counter
@@ -423,7 +421,6 @@ public class MathGameUI extends javax.swing.JFrame {
         feedbackLabel2.setText("");  
         
         userInputTextField.requestFocus(); //focus back on the textField after clicking button
-        //userInputTextField.selectAll(); //highlights TextField
         userInputTextField.setText(""); //Clear TextField for user to solve a new problem
         userInputTextField.setEditable(true); //Text in TextField can be edited
     }//GEN-LAST:event_multiplyButtonActionPerformed
@@ -450,7 +447,6 @@ public class MathGameUI extends javax.swing.JFrame {
         feedbackLabel2.setText("");  
         
         userInputTextField.requestFocus(); //focus back on the textField after clicking button
-        //userInputTextField.selectAll(); //highlights TextField
         userInputTextField.setText(""); //Clear TextField for user to solve a new problem
         userInputTextField.setEditable(true); //Text in TextField can be edited
     }//GEN-LAST:event_subtractButtonActionPerformed
@@ -471,7 +467,6 @@ public class MathGameUI extends javax.swing.JFrame {
         feedbackLabel2.setText("");  
         
         userInputTextField.requestFocus(); //focus back on the textField after clicking button
-        //userInputTextField.selectAll(); //highlights TextField
         userInputTextField.setText(""); //Clear TextField for user to solve a new problem
         userInputTextField.setEditable(true); //Text in TextField can be edited
     }//GEN-LAST:event_divideButtonActionPerformed
@@ -528,7 +523,6 @@ public class MathGameUI extends javax.swing.JFrame {
         feedbackLabel2.setText("");
         
         userInputTextField.requestFocus(); //focus back on the textField after clicking button
-        //userInputTextField.selectAll(); //highlights TextField
         userInputTextField.setText(""); //Clear TextField for user to solve a new problem
         userInputTextField.setEditable(true); //Text in TextField can be edited
     }//GEN-LAST:event_randomButtonActionPerformed
