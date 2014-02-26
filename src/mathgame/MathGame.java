@@ -35,6 +35,8 @@ package mathgame;
  *  -Make a good GUI for the program. It should be fun looking with colors, images and sounds.
  *  -Properly document your code using javadoc.
  * 
+ * 
+ *  This class maintains the core elements of a math game
  */
 
 
