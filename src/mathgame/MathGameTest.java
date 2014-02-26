@@ -11,10 +11,10 @@ package mathgame;
  * Class: CSCI 2001-51
  * Due Date: 02/25/14
  *
- * Version final
+ * Version: final
  * 
  * 
- * Test class for MathGame project
+ * Creates and displays the GUI
  * 
  */
 
