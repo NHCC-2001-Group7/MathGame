@@ -398,6 +398,8 @@ public class MathGameUI extends javax.swing.JFrame {
         percentage = correct * 10; //calculate percentage
         totalScoreLabel.setText("Final Score = " + percentage + "%"); //display final score percentage
         questionLabel.setText("Please Play Again!"); //set label text to tell user game is over
+        feedbackLabel.setText(""); //clear feedbackLabel
+        feedbackLabel2.setText(""); //clear feedbackLabel2
         mathGame.soundClip(finalScorePing); //play sound clip
         correct = 0; //reset counter
         incorrect = 0; //reset counter
